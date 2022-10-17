@@ -1,0 +1,90 @@
+<div class="row justify-content-md-center">
+    <div class="col-6 align-self-center">
+        <div class="card">
+            <div class="card-header">
+                <h2>Edit Hotel</h2>
+            </div>
+            <div class="card-body ">
+                <form id="frm_editHotel" method="post" enctype="multipart/form-data" action="/hotels/edit/{{hotel._id}}">
+                    <div class="form-group">
+                        <label for="txtName">Name</label>
+                        <input name="name" type="text" class="form-control" id="txtName" value="{{hotel.name}}"
+                            placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAddress">Address</label>
+                        <input name="address" type="text" class="form-control" id="txtAddress" value="{{hotel.address}}"
+                            placeholder="Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtCity">City</label>
+                        <input name="city" type="text" class="form-control" id="txtCity" value="{{hotel.city}}"
+                            placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtState">State</label>
+                        <input name="state" type="text" class="form-control" id="txtState" value="{{hotel.state}}"
+                            placeholder="State">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtZipCode">Zip Code</label>
+                        <input name="zipCode" type="text" class="form-control" id="txtZipCode" value="{{hotel.zipCode}}"
+                            placeholder="Zip Code">
+                    </div>
+                    <div class="form-group">
+                        <label for="ddlCategory">Category</label>
+                        <select id="ddlCategory" name="category" class="form-control">
+                            <option value="">Select Category</option>
+                            {{#each categories}}
+                            <option value="{{this}}" {{#ifSelected  ../hotel.category this}} selected{{/ifSelected}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPriceRange">Price Range</label>
+                        <input name="priceRange" type="text" class="form-control" value="{{hotel.priceRange}}"
+                            id="txtPriceRange" placeholder="Price Range">
+                    </div>
+                    <div class="form-group">
+                        <label for="ddlOnSiteServices">On Site Services</label>
+                        <select id="ddlOnSiteServices" name="onSiteServices" class="form-control" multiple>
+                            {{#each onSiteServices}}
+                                 <option value="{{this}}"  {{#ifMSelected  ../hotel.onSiteServices this}} selected{{/ifMSelected}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtLatitude">Latitude</label>
+                        <input name="latitude" type="text" class="form-control" value="{{hotel.latitude}}"
+                            id="txtLatitude" placeholder="Latitude">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtLongtitude">Longtitude</label>
+                        <input name="longtitude" type="text" class="form-control" value="{{hotel.longtitude}}"
+                            id="txtLongtitude" placeholder="Longtitude">
+                    </div>
+                    <div class="form-group">
+                        {{!-- <label for="uplImages">Images</label>
+                        <input name="images" type="file" id="uplImages" multiple accept="image/png, image/jpeg"> --}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="images-list image-box">
+                                </div>
+                                <div class="image-box">
+                                    {{#each hotel.images}}
+                                    <img src="/public/uploads/{{this}}" alt="{{../hotel.name}}"/>
+                                    {{/each}}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">Update Hotel</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

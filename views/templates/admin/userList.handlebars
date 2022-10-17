@@ -1,0 +1,67 @@
+<div class="card">
+    <div class="card-header">
+        <h2>User List</h2>
+    </div>
+    <div class="card-body">
+        {{#if error_message}}
+        <div class="alert alert-danger" role="alert">
+            {{error_message}}
+        </div>
+        {{/if}}
+        {{#if success_message}}
+        <div class="alert alert-success" role="alert">
+            {{success_message}}
+        </div>
+        {{/if}}
+        <div class="table-responsive">
+            <table class="table table-borderd">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td>{{this.userName}}</td>
+                        <td>{{this.firstName}}</td>
+                        <td>{{this.lastName}}</td>
+                        <td>{{this.emailId}}</td>
+                        <td>{{this.phoneNumber}}</td>
+                        <td>{{this.RoleName}}</td>
+                        <td><span class="badge badge-{{this.statusClass}} "> {{this.Status}}</span>
+                        </td>
+                        <td>
+                            {{#if this.viewApprovedButton }}
+                            <a href="/admin/userlist/approved/{{this._id}}" class="btn btn-outline-success" title="click to approve user"><span
+                                    class="fa fa-check"></span></a>
+                            {{/if}}
+                            {{#if this.viewBlockedButton }}
+                            <a href="/admin/userlist/blocked/{{this._id}}" class="btn btn-outline-danger" title="click to block user"><span
+                                    class="fa fa-ban"></span></a>
+                            {{/if}}
+                            {{#if this.viewUnblockedButton }}
+                            <a href="/admin/userlist/unblocked/{{this._id}}" class="btn btn-outline-primary" title="click to unblock user"><span
+                                    class="fa fa-unlock"></span></a>
+                            {{/if}}
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <td colspan="8">
+                            <p class="text-center">Users not found</p>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

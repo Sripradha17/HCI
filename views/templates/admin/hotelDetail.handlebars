@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Hotel Detail</h2>
+    </div>
+    <div class="card-body">
+        {{#if error_message}}
+        <div class="alert alert-danger" role="alert">
+            {{error_message}}
+        </div>
+        {{/if}}
+        {{#if success_message}}
+        <div class="alert alert-success" role="alert">
+            {{success_message}}
+        </div>
+        {{/if}}
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="row">
+                    <p class="col-4"><strong>Name</strong></p>
+                    <p class="col-8">{{hotel.name}}</p>
+                </div>
+                <div class="row">
+                    <p class="col-4"><strong>Category</strong></p>
+                    <p class="col-8">{{hotel.category}}</p>
+                </div>
+                <div class="row">
+                    <p class="col-4"><strong>On Site Services</strong></p>
+                    {{#if hotel.onSiteServices}}
+                    <p class="col-8">{{hotel.onSiteServices}}</p>
+                    {{else}}
+                    <p class="col-8">-</p>
+                    {{/if}}
+                </div>
+                <div class="row">
+                    <p class="col-4"><strong>Price Range</strong></p>
+                    <p class="col-8">{{hotel.priceRange}}</p>
+                </div>
+                <div class="row">
+                    <p class="col-4"><strong>Address</strong></p>
+                    <p class="col-8">{{hotel.address}}</p>
+                </div>
+                <div class="row">
+                    <p class="col-4"><strong>City</strong></p>
+                    <p class="col-8">{{hotel.city}}</p>
+                </div>
+                <div class="row">
+                    <p class="col-4"><strong>State</strong></p>
+                    <p class="col-8">{{hotel.state}}</p>
+                </div>
+                <div class="row">
+                    <p class="col-4"><strong>Zip code</strong></p>
+                    <p class="col-8">{{hotel.zipCode}}</p>
+                </div>
+                <div class="row">
+                    {{#if hotel.viewApprovedButton }}
+                    <a href="/admin/hotel/detail/approved/{{hotel._id}}" class="btn btn-outline-success ml-1"
+                        title="click to approve user"><span class="fa fa-check"></span> Approved</a>
+                    {{/if}}
+                    {{#if hotel.viewRejectButton }}
+                    <a href="/admin/hotel/detail/reject/{{hotel._id}}" class="btn btn-outline-danger ml-1"
+                        title="click to block user"><span class="fa fa-ban"></span> Rejected</a>
+                    {{/if}}
+                     <a href="/admin/hotel" class="btn btn-outline-primary ml-1"
+                        title="click to block user"><span class="fa fa-arrow-left"></span> Back</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

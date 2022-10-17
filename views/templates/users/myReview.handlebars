@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-header">
+        <h2>My Review List</h2>
+    </div>
+    <div class="card-body">
+        {{#if error_message}}
+        <div class="alert alert-danger" role="alert">
+            {{error_message}}
+        </div>
+        {{/if}}
+        {{#if success_message}}
+        <div class="alert alert-success" role="alert">
+            {{success_message}}
+        </div>
+        {{/if}}
+        <div class="table-responsive">
+            <table class="table table-borderd">
+                <thead>
+                    <tr>
+                        <th>Hotel Name</th>
+                        <th>Review Title</th>
+                        <th>Description</th>
+                        <th>Rating</th>
+
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {{#each reviews}}
+                    <tr>
+                        <td>{{this.hotelName}}</td>
+                        <td>{{this.Title}}</td>
+                        <td>{{this.description}}</td>
+                        <td> <span class="star-rating ratings">
+                                {{this.rating}}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="/reviews/delete/{{this._id}}" class="btn btn-outline-danger"
+                                title="click to delete"><span class="fa fa-trash"></span></a>
+                        </td>
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <td colspan="5">
+                            <p class="text-center">No Reviews found</p>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

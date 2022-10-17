@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-header">
+        <h2>My Favourite Hotels</h2>
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-borderd">
+                <thead>
+                    <tr>
+                        <th>Hotel Name</th>
+                        <th>Category</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {{#each hotels}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.category}}</td>
+                        <td>{{this.address}},{{this.city}},{{this.state}},{{this.zipCode}}</td>
+                        <td> <span class="star-rating ratings">
+                                {{this.rating}}
+                            </span>
+                        </td>
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <td colspan="4">
+                            <p class="text-center">No favourite hotel found</p>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

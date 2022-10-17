@@ -1,0 +1,35 @@
+<div class="container col-3 mt-3 text-center">
+    <h1 class="h3 mb-3 fw-normal">Please Enter the Review</h1>
+    
+      <div>
+    <h1 class="user-login">{{document_title}}</h1>
+    <form id="addReview-form" action="addReview" method="post" action="javascript:;">
+         
+        
+        <label class="sr-only" for="Title">Title</label>
+        <input class="form-control rounded-0" type="text" id="Title" name="Title" placeholder="Enter Title">
+        <label class="sr-only" for="description">Description </label>
+        <input class="form-control rounded-0" type="text" id="description" name="description" placeholder="Enter Description">
+        
+        <label class="sr-only" for="rating">rating</label>
+        <input class="form-control rounded-0" type="text" id="rating" name="rating" placeholder="Enter Rating">
+        
+        
+        
+        <label class="sr-only" for="dateOfReview">dateOfReview</label>
+        <input class="form-control rounded-0" type="text" id="dateOfReview" name="dateOfReview" placeholder="Enter dateOfReview">
+        
+        
+        <button type="submit">sumbit</button>
+
+        
+    </form>
+    </form>
+
+    {{#if error_message}}
+    <p> {{this.error_message}}</p>
+    {{/if}}
+
+  
+     <a href="/">Home Page</a>
+</div>

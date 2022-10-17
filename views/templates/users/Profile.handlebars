@@ -1,0 +1,45 @@
+<div class="row justify-content-md-center">
+  <div class="col-6 align-self-center">
+    <h1 class="user-login">My Profile</h1>
+    <form id="profile-form" name="profile-form" action="javascript:;">
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname"
+          value="{{user.firstName}}">
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname"
+          value="{{user.lastName}}">
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Username" name="username" disabled
+          value="{{user.userName}}">
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="{{user.phoneNumber}}"
+          placeholder="Phone number">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="Email Id" name="email" value="{{user.emailId}}">
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" id="age" name="age" placeholder="Age" value="{{user.age}}">
+      </div>
+      <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+      </div>
+      <div class="row justify-content-center mt-2">
+        <a href="/" class="link-info">Home Page</a>
+      </div>
+    </form>
+  </div>
+</div>

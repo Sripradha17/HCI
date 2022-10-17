@@ -1,0 +1,213 @@
+main{
+    margin-bottom: 75px;
+    margin-top: 75px;
+}
+.main-header .nav-item.menu:hover
+{
+background-color: #337ab7;
+}
+.main-header .navbar{
+    background-color: #333 !important;
+    border-radius: 0;
+}
+.main-header .navbar-brand
+{
+    color:#fff;
+}
+.main-header .navbar-brand:active,.main-header .navbar-brand:hover
+{
+    color:#fff;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link
+{
+    color:#fff;
+}
+.navbar-light .navbar-nav .nav-link
+{
+    color:#fff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover
+{
+    color: #fff;
+}
+.main-header .form-inline
+{
+    display: inline-flex;
+    margin-left: 20px;
+}
+#carouselExampleControls
+{
+    margin-top: -75px;
+    margin-left: -15px;
+    margin-right: -15px;
+
+}
+.jumbotron
+{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.hotel-list .category
+{
+    font-weight: bold;
+}
+footer {
+margin-top: 15px;
+padding: 15px;
+    color: #fff;
+}
+
+
+#loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+	text-align: center;
+    background: url('../images/loader.gif') 50% 50% no-repeat rgba(0,0,0,0.8);
+	vertical-align: middle;
+  color: #fff;
+ 
+}
+#loader:before{
+      content: attr(data-wordLoad);
+      color: #fff;
+      position: absolute;
+      top: calc(50% + 150px); 
+      left: calc(50% - 90px); 
+	    width: 180px;
+	    display: table-cell;
+	    text-align: center;
+	    vertical-align: middle;
+      font-size: 1.5rem;
+}
+
+#hotelCarousel .carousel-indicators {
+    position: static;
+    margin-top: 20px;
+    height: 100px;
+    width: auto;
+}
+
+#hotelCarousel .carousel-indicators>li {
+    width: 100px
+}
+
+#hotelCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5
+}
+
+#hotelCarousel .carousel-indicators li.active img {
+    opacity: 1
+}
+
+#hotelCarousel .carousel-indicators li:hover img {
+    opacity: 0.75
+}
+
+.carousel-item img {
+    height: 400px;
+    width: 100%;
+}
+
+.total-like {
+    border: 1px solid;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: 500;
+    height: 34px;
+    line-height: 33px;
+    padding: 0 13px;
+    vertical-align: top;
+}
+.hotel-detailed-ratings-and-reviews hr {
+    margin: 0 -24px;
+}
+
+.text-black {
+    color: #000000;
+}
+.reviews-members .media .mr-3 {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+}
+.rounded-pill {
+    border-radius: 50rem!important;
+}
+
+.total-like {
+    border: 1px solid;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: 500;
+    height: 34px;
+    line-height: 33px;
+    padding: 0 13px;
+    vertical-align: top;
+}
+.hotel-detailed-ratings-and-reviews hr {
+    margin: 0 -24px;
+}
+
+.user-rating {
+    direction: rtl;
+    font-size: 20px;
+    unicode-bidi: bidi-override;
+    padding: 10px 30px;
+    display: inline-block;
+}
+.user-rating input {
+    opacity: 0;
+    position: relative;
+    left: -15px;
+    z-index: 2;
+    cursor: pointer;
+}
+.user-rating span.star:before {
+    color: #777777;
+    content:"ï€†";
+    /*padding-right: 5px;*/
+}
+.user-rating span.star {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    position: relative;
+    z-index: 1;
+}
+.user-rating span {
+    margin-left: -15px;
+}
+.user-rating span.star:before {
+    color: #777777;
+    content:"\f006";
+    /*padding-right: 5px;*/
+}
+.user-rating input:hover + span.star:before, .user-rating input:hover + span.star ~ span.star:before, .user-rating input:checked + span.star:before, .user-rating input:checked + span.star ~ span.star:before {
+    color: #ffd100;
+    content:"\f005";
+}
+
+.total-like:hover{
+    text-decoration: none;
+}
+.image-box
+{
+    margin-top:15px;
+}
+.image-box img{
+    height: 100px;
+    width: auto;
+    margin-left: 5px;
+    float: left;
+    border: 1px solid #ddd;
+    padding: 5px;
+
+}

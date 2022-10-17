@@ -1,0 +1,30 @@
+{{#each reviews_list}}
+<hr>
+<div class="reviews-members pt-4 pb-4">
+    <div class="media">
+        <div class="media-body">
+            <div class="reviews-members-header">
+                <span class="star-rating float-right ratings">
+                    {{this.rating}}
+                </span>
+                <h6 class="mb-1"> 
+                    <span class="fa fa-user mr-1"></span>
+                    <a class="text-black" href="#">{{this.user_name}}</a>
+                </h6>
+                <p class="text-muted">{{this.dateOfReview}}</p>
+            </div>
+            <div class="reviews-members-body">
+                <p><b>{{this.Title}}</b></p>
+                <p>{{this.description}}</p>
+            </div>
+            <div class="reviews-members-footer">
+                <a class="total-like like" data-id="{{this._id}}" href="javascript:;"><i class="fa fa-thumbs-up"></i>
+                    {{this.likes.length}}</a>
+                <a class="total-like unlike" data-id="{{this._id}}" href="javascript:;"><i
+                        class="fa fa-thumbs-down"></i>
+                    {{this.dislikes.length}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css" crossorigin="anonymous" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../public/css/toastr.css" />
+    <link rel="stylesheet" href="../../public/css/select2.min.css" />
+    <link rel="stylesheet" href="../../public/css/main.css" />
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">MyTripadvisor.com</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto justify-content-center align-items-center menu">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Hotels">Hotels</a>
+                    </li>
+                    {{#if user}}
+                    {{#ifBusiness user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Hotels/addHotel">Add Hotels</a>
+                    </li>
+                    {{/ifBusiness}}
+                    {{#ifAdmin user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/userlist">User List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/hotel">Hotel List</a>
+                    </li>
+                    {{/ifAdmin}}
+
+                    {{/if}}
+                </ul>
+
+                <ul class="navbar-nav mr-auto float-right">
+                    <li>
+                        <form method="post" action="/hotels" class="form-inline my-2 my-lg-2">
+                            <select class="form-control mr-sm-2" name="header_category" id="header-category">
+                                <option value="">All</option>
+                            </select>
+                            <input class="form-control mr-sm-2" type="text" name="search_term" placeholder="Search"
+                                aria-label="Search" />
+                            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
+                    {{#if user}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{user.firstName}} {{user.lastName}}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/profile">My Profile</a>
+                            <a class="dropdown-item" href="/myreview">My reviews</a>
+                            <a class="dropdown-item" href="/favHotel">My Favourite Hotels</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><span class="fa fa-user"></span> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup"><span class="fa fa-sign-in"></span> Sign up</a>
+                    </li>
+
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="loader" data-wordLoad="Please Waiting" style="display: none;"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    {{{body}}}
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer fixed-bottom bg-secondary">
+        <div class="container">
+            <p>&copy; 2021 Copyright:Author: CS-546 B Group 13
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../public/js/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="../../public/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="../../public/js/jquery.validate.min.js" crossorigin="anonymous"></script>
+    <script src="../../public/js/toastr.min.js" crossorigin="anonymous"></script>
+    <script src="../../public/js/select2.min.js" crossorigin="anonymous"></script>
+    <script src="../../public/js/common.js" crossorigin="anonymous"></script>
+
+    {{#if partial}}
+    {{> (lookup . 'partial')}}
+    {{/if}}
+</body>
+
+</html>
