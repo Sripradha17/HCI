@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     });
     res.render('templates/users/index',
         {
-            title: 'My Trip Advisor',
+            title: 'Game Over',
             authenticated: req.session.user ? true : false,
             user: req.session.user,
             hotels: hotels
