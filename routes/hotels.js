@@ -129,9 +129,8 @@ router.get('/addHotel', async (req, res) => {
     else {
         return res.redirect("../hotels");
     }
-
-
 });
+
 router.post('/addHotel', upload.array('images'), async (req, res) => {
     let data = {};
 

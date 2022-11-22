@@ -13,6 +13,11 @@ const getCollectionFn = (collection) => {
 
 module.exports = {
     hotels: getCollectionFn('hotels'),
+    puzzle: getCollectionFn('puzzle'),
+    action: getCollectionFn('action'),
+    racing: getCollectionFn('racing'),
+    sports: getCollectionFn('sports'),
+    strategy: getCollectionFn('strategy'),
     users: getCollectionFn('users'),
     reviews: getCollectionFn('reviews'),
 }

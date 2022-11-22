@@ -1,0 +1,32 @@
+<section>
+    <h1 style="text-align: center;">Puzzle Games</h1>
+</section>
+
+<section>
+    <div class="row hotel-list">
+
+
+        {{#each puzzle}}
+
+        <div class="col-md-2 cards">
+            <div class="card">
+                <a href="/puzzle/{{this._id}}">
+                    <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}" />
+                </a>
+                <div class="card-body">
+
+                    <h3 class="card-title"><a href="puzzle/{{this._id}}" class="text-decoration-none">
+                            {{this.name}}
+                        </a>
+                    </h3>
+                    {{#if this.showRating}}
+                    <span class="badge-pill  badge-{{this.ratingclass}}"><i class="fa fa-star"></i>
+                        {{this.rating}}</span>
+                    {{/if}}
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
