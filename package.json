@@ -1,14 +1,14 @@
 {
-    "name": "hotel_review_system",
+    "name": "game_review_system",
     "version": "1.0.0",
-    "description": "CS 546 Web Programming I: Final Project",
+    "description": "CS 545 HCI: Final Project",
     "main": "app.js",
     "scripts": {
         "seed": "node ./tasks/seed.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node app.js"
     },
-    "author": "Udit Patel",
+    "author": "Group 2",
     "license": "ISC",
     "dependencies": {
         "bcrypt": "^5.0.1",
