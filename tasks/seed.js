@@ -56,12 +56,12 @@ async function main() {
     const S6 = await Sports.addSports("Mario Golf", "Mario Golf", ["TET"], "https://store.steampowered.com/app/607080/Psychonauts_2/", ["../../../public/images/Mario_golf.gif"]);
 
     //strategy
-    const ST1 = await Strategy.addStrategy("Offworld Trading Company", "Offworld Trading Company", ["TET"],"https://store.steampowered.com/app/1088850/Marvels_Guardians_of_the_Galaxy/",["../../../public/images/offworld.gif"]);
-    const ST2 = await Strategy.addStrategy("Crusader Kings 3", "Crusader Kings 3", ["TET"],"https://www.residentevil.com/4/",["../../../public/images/crusader.gif"]);
-    const ST3 = await Strategy.addStrategy("Supremacy 1914", "Supremacy 1914", ["TET"],"https://store.steampowered.com/agecheck/app/203160/",["../../../public/images/supremacy.gif"]);
-    const ST4 = await Strategy.addStrategy("XCOM 2", "XCOM 2", ["TET"],"https://store.steampowered.com/app/2208920/Assassins_Creed_Valhalla/",["../../../public/images/xcom2.gif"]);
-    const ST5 = await Strategy.addStrategy("Homeworld: Deserts of Kharak", "Homeworld: Deserts of Kharak", ["TET"],"https://store.steampowered.com/app/35140/Batman_Arkham_Asylum_Game_of_the_Year_Edition/",["../../../public/images/homeworld.gif"]);
-    const ST6 = await Strategy.addStrategy("Civilization 6", "Civilization 6", ["TET"],"https://store.steampowered.com/app/607080/Psychonauts_2/",["../../../public/images/civilization6.gif"]);
+    const ST1 = await Strategy.addStrategy("Offworld Trading Company", "Offworld Trading Company is a real-time strategy video game developed by Mohawk Games and published by Stardock. The game was released for Microsoft Windows and OS X in April 2016.", ["Player A owns 7 of his own stock.", "Player B owns 3 of Player A's stocks.", "In order for Player B to buyout Player A, they must first purchase two of Player A's stocks at twice their listed price.", "Then, Player B has to purchase the remaining 5 stocks in one go (also at twice the listed price).", "These purchases are a 'forced purchase', if you will, as they forcibly replace Player A's ownership of a stock w/ Player B's."], "https://offworldtradingcompany.fandom.com/wiki/Beginner%27s_Guide", ["Cycle Own HQs	SPACE", "Cycle HQ	TAB", "Claim Tile	C", "Bid on Auction	B", "Sell All Resources	2", "Hide Buildings	3", "Delete Building	4"], ["https://store.steampowered.com/app/1088850/Marvels_Guardians_of_the_Galaxy/","https://www.offworldgame.com/",], ["../../../public/images/offworld.gif","../../../public/images/offworld.gif","../../../public/images/offworld.gif","../../../public/images/offworld.gif","../../../public/images/offworld.gif"],"https://www.youtube.com/embed/wOjeepczC6g");
+    // const ST2 = await Strategy.addStrategy("Crusader Kings 3", "Crusader Kings 3", ["TET"], "https://www.residentevil.com/4/", ["../../../public/images/crusader.gif"]);
+    // const ST3 = await Strategy.addStrategy("Supremacy 1914", "Supremacy 1914", ["TET"], "https://store.steampowered.com/agecheck/app/203160/", ["../../../public/images/supremacy.gif"]);
+    // const ST4 = await Strategy.addStrategy("XCOM 2", "XCOM 2", ["TET"], "https://store.steampowered.com/app/2208920/Assassins_Creed_Valhalla/", ["../../../public/images/xcom2.gif"]);
+    // const ST5 = await Strategy.addStrategy("Homeworld: Deserts of Kharak", "Homeworld: Deserts of Kharak", ["TET"], "https://store.steampowered.com/app/35140/Batman_Arkham_Asylum_Game_of_the_Year_Edition/", ["../../../public/images/homeworld.gif"]);
+    // const ST6 = await Strategy.addStrategy("Civilization 6", "Civilization 6", ["TET"], "https://store.steampowered.com/app/607080/Psychonauts_2/", ["../../../public/images/civilization6.gif"]);
 
     // data= await Puzzle.getAllPuzzles();
     // H1_id= data[data.length - 1]._id;

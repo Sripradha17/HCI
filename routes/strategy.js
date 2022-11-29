@@ -25,4 +25,54 @@ router.get('/', async (req, res) => {
 
 });
 
+router.get('/:id', async (req, res) => {
+
+    let id = xss(req.params.id.trim());
+    console.log(id)
+    if (id === '') {
+        return res.render('errors/404', {
+            authenticated: req.session.user ? true : false,
+            user: req.session.user,
+            title: '404 Page not found',
+        });
+
+    }
+    try {
+        let strategy = await strategyData.getStrategyById(id);
+        console.log(strategy)
+        if (strategy) {
+            // strategy.showRating = strategy.rating > 0 ? true : false;
+            // strategy.reviews_list = await reviewData.getAllReviewsByStrategyId(strategy._id);
+            
+            return res.render('templates/strategy/strategyDetail', {
+                authenticated: req.session.user ? true : false,
+                user: req.session.user,
+                title: 'Strategy',
+                strategy: strategy,
+
+            });
+        }
+        else {
+            return res.render('errors/404', {
+                authenticated: req.session.user ? true : false,
+                user: req.session.user,
+                title: '404 Page not found',
+            });
+
+
+        }
+
+
+
+    }
+    catch (e) {
+        return res.render('errors/404', {
+            authenticated: req.session.user ? true : false,
+            user: req.session.user,
+            title: '404 Page not found',
+        });
+    }
+
+});
+
 module.exports = router;

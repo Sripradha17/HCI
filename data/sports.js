@@ -11,7 +11,7 @@ async function getAllSportss() {
     const allSports = await sportsCollection.find({}).toArray();
     for (let x of allSports) {
         x._id = x._id.toString();
-        console.log(x)
+        // console.log(x)
         if (x.images.length < 1) {
             x.image = "no-sports-image.png";
         }

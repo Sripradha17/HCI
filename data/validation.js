@@ -84,8 +84,43 @@ async function checkUrl(url){
     }
 }
 
-async function checkCheatCode(cheatCode){
+async function checkUrlList(url){
+
+    if(!Array.isArray(url)){
+        throw "Enter valid URL List"
+    }
+    var urlregx = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+
+    url.forEach(element => {
+        if(!urlregx.test(element) || typeof element != "string"){
+            throw "Enter valid url"
+        }
+    });
     
+}
+
+async function checkCheatCode(cheatCode){
+    if(!Array.isArray(cheatCode)){
+        throw "Enter valid Cheat code"
+    }
+
+    cheatCode.forEach(element => {
+        if(typeof element != "string"){
+            throw "Enter valid Cheat code"
+        }
+    });
+}
+
+async function checkInstruction(instruction){
+    if(!Array.isArray(instruction)){
+        throw "Enter valid Instruction"
+    }
+
+    instruction.forEach(element => {
+        if(typeof element != "string"){
+            throw "Enter valid Instruction"
+        }
+    });
 }
 
 module.exports = {
@@ -97,7 +132,9 @@ module.exports = {
     checkemail,
     checkInfo,
     checkUrl,
+    checkUrlList,
     checkCheatCode,
+    checkInstruction,
     checkname
     
 };

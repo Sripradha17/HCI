@@ -11,7 +11,7 @@ async function getAllRacings() {
     const allRacing = await racingCollection.find({}).toArray();
     for (let x of allRacing) {
         x._id = x._id.toString();
-        console.log(x)
+        // console.log(x)
         if (x.images.length < 1) {
             x.image = "no-racing-image.png";
         }

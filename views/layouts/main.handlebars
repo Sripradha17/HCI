@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../../public/css/toastr.css" />
     <link rel="stylesheet" href="../../public/css/select2.min.css" />
     <link rel="stylesheet" href="../../public/css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>{{title}}</title>
 </head>
 
@@ -51,13 +53,7 @@
     </header>
     <main>
         <div id="loader" data-wordLoad="Please Waiting" style="display: none;"></div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    {{{body}}}
-                </div>
-            </div>
-        </div>
+        {{{body}}}
 
     </main>
 

@@ -1,0 +1,201 @@
+<div class="div-detail">
+    <section class="heading-section">
+        <h1 class="headingOne">{{strategy.name}}</h1>
+    </section>
+
+    <section class="iframe-section">
+        <iframe width="100%" height="500" src={{strategy.link}} frameborder="0" allowfullscreen ng-show="showvideo">
+        </iframe>
+    </section>
+
+    <section class="about-section">
+        <div class="row">
+            <div class="column">
+                <img class="imageOne" src="{{strategy.imageOne}}" alt="image-one">
+            </div>
+
+            <div class="column">
+                <div class="card-detail">
+                    <div class="card_content-detail">
+                        <h2 class="card_title-detail">About the game</h2><br>
+                        <p class="card_text-detail">{{strategy.about}}</p>
+                        <button class="btn-detail card_btn-detail" id="mybtnOne">Read
+                            More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="myModalOne" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span><br>
+            <h2>About the game</h2><br>
+            <p>{{strategy.about}}</p>
+        </div>
+
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModalOne");
+
+        var btn = document.getElementById("mybtnOne");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <section class="instruction-section">
+        <div class="row">
+            <div class="column">
+                <div class="card-detail">
+                    <div class="card_content-detail">
+                        <h2 class="card_title-detail">How to play the game</h2><br>
+                        <p class="card_text-detail">{{strategy.instruction}}</p>
+                        <button class="btn-detail card_btn-detail" id="mybtnTwo">Read
+                            More</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <img class="imageOne" src="{{strategy.imageTwo}}" alt="image-one">
+            </div>
+        </div>
+    </section>
+
+    <div id="myModalTwo" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="closeTwo">&times;</span><br>
+
+            <h2>How to play the game</h2><br>
+            <ul>
+                {{#each strategy.instruction}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+
+            <h6>Refer to the link for more information:</h6>
+            <a href={{strategy.refer}} target="_blank">{{strategy.refer}}</a>
+        </div>
+
+    </div>
+
+    <script>
+        var modalTwo = document.getElementById("myModalTwo");
+
+        var btnTwo = document.getElementById("mybtnTwo");
+
+        var spanTwo = document.getElementsByClassName("closeTwo")[0];
+
+        btnTwo.onclick = function () {
+            modalTwo.style.display = "block";
+        }
+
+        spanTwo.onclick = function () {
+            modalTwo.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modalTwo) {
+                modalTwo.style.display = "none";
+            }
+        }
+    </script>
+
+    <section class="cheatcCode-section">
+        <div class="row">
+            <div class="column">
+                <img class="imageOne" src="{{strategy.imageThree}}" alt="image-one">
+            </div>
+
+            <div class="column">
+                <div class="card-detail">
+                    <div class="card_content-detail">
+                        <h2 class="card_title-detail">Cheat code</h2><br>
+                        {{#each strategy.cheatCodes}}
+                        <p class="card_text-detail">{{this}}</p>
+                        {{/each}}
+                        <button class="btn-detail card_btn-detail" id="mybtnThree">Read
+                            More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="myModalThree" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="closeThree">&times;</span><br>
+
+            <h2>Cheat codes</h2><br>
+            <ul>
+                {{#each strategy.cheatCodes}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        var modalThree = document.getElementById("myModalThree");
+
+        var btnThree = document.getElementById("mybtnThree");
+
+        var spanThree = document.getElementsByClassName("closeThree")[0];
+
+        btnThree.onclick = function () {
+            modalThree.style.display = "block";
+        }
+
+        spanThree.onclick = function () {
+            modalThree.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modalThree) {
+                modalThree.style.display = "none";
+            }
+        }
+    </script>
+
+    <section class="url-section">
+        <h2>Where can I find the game?</h2>
+        {{#each strategy.url}}
+        <a href={{this}} target="_blank">{{this}}</a><br>
+        {{/each}}
+    </section>
+
+
+    <section class="img-section">
+        <div class="row">
+            <div class="column">
+                <img class="imageOne" src="{{strategy.imageFour}}" alt="image-one">
+            </div>
+
+            <div class="column">
+                <img class="imageOne" src="{{strategy.imageFive}}" alt="image-one">
+            </div>
+        </div>
+    </section>
+</div>

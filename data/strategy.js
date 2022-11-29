@@ -11,7 +11,7 @@ async function getAllStrategys() {
     const allStrategy = await strategyCollection.find({}).toArray();
     for (let x of allStrategy) {
         x._id = x._id.toString();
-        console.log(x)
+        // console.log(x)
         if (x.images.length < 1) {
             x.image = "no-strategy-image.png";
         }
@@ -24,37 +24,55 @@ async function getAllStrategys() {
 }
 
 async function getStrategyById(strategyId) {
-    //validation remaining
 
     const strategyCollection = await strategy();
-    let strategy = await strategyCollection.findOne({ _id: ObjectId(strategyId.trim()) });
-    if (strategy === null) throw 'No strategy with that id.';
-    strategy._id = strategy._id.toString();
-    if (strategy.images.length < 1) {
-        strategy.images.push("no-strategy-image.png");
+    let strategyOne = await strategyCollection.findOne({ _id: ObjectId(strategyId.trim()) });
+    if (strategyOne === null) {
+        throw "No strategy game with Id found"
     }
-    return strategy;
+    // console.log(x)
+    if (strategyOne.images.length < 1) {
+        strategyOne.image = "no-strategy-image.png";
+    }
+    else {
+        strategyOne.imageOne = strategyOne.images[0];
+        strategyOne.imageTwo = strategyOne.images[1];
+        strategyOne.imageThree = strategyOne.images[2];
+        strategyOne.imageFour = strategyOne.images[3];
+        strategyOne.imageFive = strategyOne.images[4];
+    }
+
+    return strategyOne
+
 }
 
-async function addStrategy(name, info, cheatCodes, url, images) {
+async function addStrategy(name, about, instruction, refer, cheatCodes, url, images, link) {
     await validation.checkname(name);
-    await validation.checkInfo(info);
+    await validation.checkInfo(about);
+    await validation.checkInstruction(instruction);
     await validation.checkCheatCode(cheatCodes);
-    await validation.checkUrl(url);
+    await validation.checkUrlList(url);
+    await validation.checkUrl(refer);
+    await validation.checkUrl(link);
     await validation.checkimage(images);
     const strategyCollection = await strategy();
     let newStrategy = {
         name: name,
-        info:info,
-        cheatCodes:cheatCodes,
-        url:url,
-        images:images,
+        about: about,
+        instruction: instruction,
+        cheatCodes: cheatCodes,
+        url: url,
+        refer: refer,
+        link: link,
+        images: images,
         rating: 0
     }
     const insertInfo = await strategyCollection.insertOne(newStrategy);
     if (insertInfo.insertedCount === 0) throw "could not add strategy";
     return true;
 }
+
+
 
 module.exports = {
     getAllStrategys,

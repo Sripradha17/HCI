@@ -11,7 +11,7 @@ async function getAllActions() {
     const allAction = await actionCollection.find({}).toArray();
     for (let x of allAction) {
         x._id = x._id.toString();
-        console.log(x)
+        // console.log(x)
         if (x.images.length < 1) {
             x.image = "no-action-image.png";
         }
