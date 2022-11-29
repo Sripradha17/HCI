@@ -14,7 +14,7 @@
                 <img class="imageOne" src="{{strategy.imageOne}}" alt="image-one">
             </div>
 
-            <div class="column">
+            <div class="column" style="padding-right: 55px;">
                 <div class="card-detail">
                     <div class="card_content-detail">
                         <h2 class="card_title-detail">About the game</h2><br>
@@ -39,23 +39,23 @@
     </div>
 
     <script>
-        var modal = document.getElementById("myModalOne");
+        var modalOne = document.getElementById("myModalOne");
 
-        var btn = document.getElementById("mybtnOne");
+        var btnOne = document.getElementById("mybtnOne");
 
-        var span = document.getElementsByClassName("close")[0];
+        var spanOne = document.getElementsByClassName("close")[0];
 
-        btn.onclick = function () {
-            modal.style.display = "block";
+        btnOne.onclick = function () {
+            modalOne.style.display = "block";
         }
 
-        span.onclick = function () {
-            modal.style.display = "none";
+        spanOne.onclick = function () {
+            modalOne.style.display = "none";
         }
 
         window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == modalOne) {
+                modalOne.style.display = "none";
             }
         }
     </script>
@@ -66,14 +66,16 @@
                 <div class="card-detail">
                     <div class="card_content-detail">
                         <h2 class="card_title-detail">How to play the game</h2><br>
-                        <p class="card_text-detail">{{strategy.instruction}}</p>
+                        {{#each strategy.instruction}}                        
+                        <p class="card_text-detail">{{this}}</p>
+                        {{/each}}
                         <button class="btn-detail card_btn-detail" id="mybtnTwo">Read
                             More</button>
                     </div>
                 </div>
             </div>
 
-            <div class="column">
+            <div class="column" style="padding-right: 55px;">
                 <img class="imageOne" src="{{strategy.imageTwo}}" alt="image-one">
             </div>
         </div>
@@ -126,7 +128,7 @@
                 <img class="imageOne" src="{{strategy.imageThree}}" alt="image-one">
             </div>
 
-            <div class="column">
+            <div class="column" style="padding-right: 55px;">
                 <div class="card-detail">
                     <div class="card_content-detail">
                         <h2 class="card_title-detail">Cheat code</h2><br>
