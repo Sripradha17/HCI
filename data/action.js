@@ -24,31 +24,57 @@ async function getAllActions() {
 }
 
 async function getActionById(actionId) {
-    //validation remaining
 
     const actionCollection = await action();
-    let action = await actionCollection.findOne({ _id: ObjectId(actionId.trim()) });
-    if (action === null) throw 'No action with that id.';
-    action._id = action._id.toString();
-    if (action.images.length < 1) {
-        action.images.push("no-action-image.png");
+    let actionOne = await actionCollection.findOne({ _id: ObjectId(actionId.trim()) });
+    if (actionOne === null) {
+        throw "No action game with Id found"
     }
-    return action;
+    // console.log(x)
+    if (actionOne.images.length < 1) {
+        actionOne.image = "no-action-image.png";
+    }
+    else {
+        actionOne.imageOne = actionOne.images[0];
+        actionOne.imageTwo = actionOne.images[1];
+        actionOne.imageThree = actionOne.images[2];
+        actionOne.imageFour = actionOne.images[3];
+        actionOne.imageFive = actionOne.images[4];
+    }
+
+    actionOne.instructionSet=[];
+    actionOne.cheatCodesSet=[]
+    for (let i = 0; i < 5; i++) {
+        actionOne.instructionSet.push(actionOne.instruction[i])
+    }
+
+    for (let j = 0; j < 5; j++) {
+        actionOne.cheatCodesSet.push(actionOne.cheatCodes[j])
+    }
+    
+    return actionOne
+
 }
 
-async function addAction(name, info, cheatCodes, url, images) {
+async function addAction(name, about, instruction, refer, cheatCodes, url, images, link) {
     await validation.checkname(name);
-    await validation.checkInfo(info);
+    await validation.checkInfo(about);
+    await validation.checkInstruction(instruction);
     await validation.checkCheatCode(cheatCodes);
-    await validation.checkUrl(url);
+    await validation.checkUrlList(url);
+    await validation.checkUrl(refer);
+    await validation.checkUrl(link);
     await validation.checkimage(images);
     const actionCollection = await action();
     let newAction = {
         name: name,
-        info:info,
-        cheatCodes:cheatCodes,
-        url:url,
-        images:images,
+        about: about,
+        instruction: instruction,
+        cheatCodes: cheatCodes,
+        url: url,
+        refer: refer,
+        link: link,
+        images: images,
         rating: 0
     }
     const insertInfo = await actionCollection.insertOne(newAction);

@@ -66,7 +66,7 @@
                 <div class="card-detail">
                     <div class="card_content-detail">
                         <h2 class="card_title-detail">How to play the game</h2><br>
-                        {{#each strategy.instruction}}                        
+                        {{#each strategy.instructionSet}}                        
                         <p class="card_text-detail">{{this}}</p>
                         {{/each}}
                         <button class="btn-detail card_btn-detail" id="mybtnTwo">Read
@@ -132,7 +132,7 @@
                 <div class="card-detail">
                     <div class="card_content-detail">
                         <h2 class="card_title-detail">Cheat code</h2><br>
-                        {{#each strategy.cheatCodes}}
+                        {{#each strategy.cheatCodesSet}}
                         <p class="card_text-detail">{{this}}</p>
                         {{/each}}
                         <button class="btn-detail card_btn-detail" id="mybtnThree">Read
@@ -184,7 +184,7 @@
     <section class="url-section">
         <h2>Where can I find the game?</h2>
         {{#each strategy.url}}
-        <a href={{this}} target="_blank">{{this}}</a><br>
+        <a href={{this}} target="_blank" style="color: #267fff;">{{this}}</a><br>
         {{/each}}
     </section>
 

@@ -42,6 +42,16 @@ async function getStrategyById(strategyId) {
         strategyOne.imageFive = strategyOne.images[4];
     }
 
+    strategyOne.instructionSet=[];
+    strategyOne.cheatCodesSet=[]
+    for (let i = 0; i < 5; i++) {
+        strategyOne.instructionSet.push(strategyOne.instruction[i])
+    }
+
+    for (let j = 0; j < 5; j++) {
+        strategyOne.cheatCodesSet.push(strategyOne.cheatCodes[j])
+    }
+    
     return strategyOne
 
 }

@@ -25,4 +25,42 @@ router.get('/', async (req, res) => {
 
 });
 
+router.get('/:id', async (req, res) => {
+    let id = xss(req.params.id.trim());
+    console.log(id)
+    if (id === '') {
+        return res.render('errors/404', {
+            authenticated: req.session.user ? true : false,
+            user: req.session.user,
+            title: '404 Page not found',
+        });
+    }
+    try {
+        let sports = await sportsData.getSportsById(id);
+        console.log(sports)
+        if (sports) {            
+            return res.render('templates/sports/sportsDetail', {
+                authenticated: req.session.user ? true : false,
+                user: req.session.user,
+                title: 'Sports',
+                sports: sports,
+            });
+        }
+        else {
+            return res.render('errors/404', {
+                authenticated: req.session.user ? true : false,
+                user: req.session.user,
+                title: '404 Page not found',
+            });
+        }
+    }
+    catch (e) {
+        return res.render('errors/404', {
+            authenticated: req.session.user ? true : false,
+            user: req.session.user,
+            title: '404 Page not found',
+        });
+    }
+});
+
 module.exports = router;

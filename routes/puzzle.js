@@ -25,4 +25,50 @@ router.get('/', async (req, res) => {
 
 });
 
+router.get('/:id', async (req, res) => {
+
+    let id = xss(req.params.id.trim());
+    console.log(id)
+    if (id === '') {
+        return res.render('errors/404', {
+            authenticated: req.session.user ? true : false,
+            user: req.session.user,
+            title: '404 Page not found',
+        });
+
+    }
+    try {
+        let puzzle = await puzzleData.getPuzzleById(id);
+        console.log(puzzle)
+        if (puzzle) {
+            // puzzle.showRating = puzzle.rating > 0 ? true : false;
+            // puzzle.reviews_list = await reviewData.getAllReviewsByPuzzleId(puzzle._id);
+            
+            return res.render('templates/puzzle/puzzleDetail', {
+                authenticated: req.session.user ? true : false,
+                user: req.session.user,
+                title: 'Puzzle',
+                puzzle: puzzle,
+
+            });
+        }
+        else {
+            return res.render('errors/404', {
+                authenticated: req.session.user ? true : false,
+                user: req.session.user,
+                title: '404 Page not found',
+            });
+
+
+        }
+    }
+    catch (e) {
+        return res.render('errors/404', {
+            authenticated: req.session.user ? true : false,
+            user: req.session.user,
+            title: '404 Page not found',
+        });
+    }
+});
+
 module.exports = router;
