@@ -67,7 +67,6 @@ async function getStrategyById(strategyId) {
     strategyOne.urlSeven = strategyOne.url[13]
     strategyOne.urlNameEight = strategyOne.url[14];
     strategyOne.urlEight = strategyOne.url[15]
-    console.log(strategyOne)
     
     return strategyOne
 

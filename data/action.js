@@ -68,7 +68,6 @@ async function getActionById(actionId) {
     actionOne.urlSeven = actionOne.url[13]
     actionOne.urlNameEight = actionOne.url[14];
     actionOne.urlEight = actionOne.url[15]
-    console.log(actionOne)
 
     return actionOne
 
@@ -103,7 +102,6 @@ async function addAction(name, about, instruction, refer, cheatCodes, url, image
 
 async function addReviewIds(gid, reviewId, avg) {
     let action = await this.getActionById(gid);
-    console.log(action)
     if (action === null) throw 'No user found with that id.';
     let addReview = {
         reviewId
@@ -114,7 +112,6 @@ async function addReviewIds(gid, reviewId, avg) {
     const actionCollection = await actionGame();
     const updatedReview = await actionCollection.updateOne({ _id: ObjectId(gid) },
         { $push: { reviews: addReview } });
-    console.log(updatedReview)
 
     if (updatedReview.modifiedCount === 0) throw 'Could not adde review.';
     const updatedInfo = await actionCollection.updateOne({ _id: ObjectId(gid) },

@@ -67,7 +67,6 @@ async function getSportsById(sportsId) {
     sportsOne.urlSeven = sportsOne.url[13]
     sportsOne.urlNameEight = sportsOne.url[14];
     sportsOne.urlEight = sportsOne.url[15]
-    console.log(sportsOne)
     
     return sportsOne
 

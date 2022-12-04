@@ -68,7 +68,6 @@ async function getRacingById(racingId) {
     racingOne.urlSeven = racingOne.url[13]
     racingOne.urlNameEight = racingOne.url[14];
     racingOne.urlEight = racingOne.url[15]
-    console.log(racingOne)
     return racingOne
 
 }

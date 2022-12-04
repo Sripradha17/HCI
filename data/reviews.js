@@ -37,7 +37,6 @@ module.exports = {
     },
 
     async createReview(reviewerId, gameId, title, description, rating, dateOfReview) {
-        console.log("add review",gameId)
         try {
             if (!await validation.validString(reviewerId)) throw 'Reviewer id is not a valid string.';
             if (!await validation.validString(gameId)) throw 'Game id is not a valid string.';
@@ -97,8 +96,6 @@ module.exports = {
             const strategyCollection = await strategy();
             let strategyOne = await strategyCollection.findOne({ _id: ObjectId(gameId.trim()) });
             if (puzzleOne) {
-                console.log("2")
-                console.log(gameId)
                 await puzzleData.addReviewIds(gameId, newId, avg);
             } else if (actionOne) {
                 await actionData.addReviewIds(gameId, newId, avg);

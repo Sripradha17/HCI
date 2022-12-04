@@ -74,7 +74,6 @@ async function main() {
     );
     datas = await Puzzle.getAllPuzzles();
     const p11_id = datas[datas.length - 1]._id;
-    // console.log(p11_id)
 
     const H2 = await Puzzle.addPuzzle(
     /*name*/ "Tetris",
@@ -117,8 +116,6 @@ async function main() {
     /*youtube link*/"https://www.youtube.com/embed/QQ5U-rN7Veg");
     datas = await Puzzle.getAllPuzzles();
     const p12_id = datas[datas.length - 1]._id;
-    console.log("start")
-    console.log(p12_id)
 
     const H3 = await Puzzle.addPuzzle(
     /*name*/"Portals 2",

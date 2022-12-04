@@ -67,7 +67,6 @@ async function getPuzzleById(puzzleId) {
     puzzleOne.urlSeven = puzzleOne.url[13]
     puzzleOne.urlNameEight = puzzleOne.url[14];
     puzzleOne.urlEight = puzzleOne.url[15]
-    console.log(puzzleOne)
 
     return puzzleOne
 
@@ -101,8 +100,6 @@ async function addPuzzle(name, about, instruction, refer, cheatCodes, url, image
 }
 
 async function addReviewIds(gid, reviewId, avg) {
-    console.log("3")
-    console.log(gid)
     let puzzle = (await this.getPuzzleById(gid));
     if (puzzle === null) throw 'No user found with that id.';
     let addReview = {
