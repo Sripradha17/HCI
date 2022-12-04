@@ -49,8 +49,8 @@ async function checkname(name) {
 }
 
 async function checkimage(images) {
-    if (images.length > 5) {
-        throw "Max 5 images are allowed to be uplaoded";
+    if (images.length > 6) {
+        throw "Max 6 images are allowed to be uplaoded";
     }
 }
 
@@ -90,7 +90,6 @@ async function checkUrlList(url) {
 
     for (let i = 1; i < url.length; i++) {
         if (i % 2 == 1) {
-            console.log(url[i])
             if (url[i].length > 1) {
                 if (!urlregx.test(url[i]) || typeof url[i] != "string") {
                     throw "Enter valid url"

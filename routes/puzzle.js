@@ -28,7 +28,6 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
 
     let id = xss(req.params.id.trim());
-    console.log(id)
     if (id === '') {
         return res.render('errors/404', {
             authenticated: req.session.user ? true : false,
@@ -39,17 +38,18 @@ router.get('/:id', async (req, res) => {
     }
     try {
         let puzzle = await puzzleData.getPuzzleById(id);
-        console.log(puzzle)
+        puzzle.showRating = puzzle.rating > 0 ? true : false;
+        puzzle.reviews_list = await reviewData.getAllReviewsBygameId(puzzle._id.toString());
         if (puzzle) {
             // puzzle.showRating = puzzle.rating > 0 ? true : false;
             // puzzle.reviews_list = await reviewData.getAllReviewsByPuzzleId(puzzle._id);
-            
+
             return res.render('templates/puzzle/puzzleDetail', {
                 authenticated: req.session.user ? true : false,
                 user: req.session.user,
                 title: 'Puzzle',
                 puzzle: puzzle,
-
+                partial: 'puzzle-detail-script'
             });
         }
         else {
@@ -69,6 +69,44 @@ router.get('/:id', async (req, res) => {
             title: '404 Page not found',
         });
     }
+});
+
+router.get('/puzzlereviews/:id', async (req, res) => {
+    let id = xss(req.params.id.trim());
+    let puzzle = undefined;
+    if (id === '') {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...puzzle
+        });
+
+    }
+    try {
+        puzzle = await puzzleData.getPuzzleById(id);
+        if (puzzle) {
+            puzzle.showRating = puzzle.rating > 0 ? true : false;
+            puzzle.reviews_list = await reviewData.getAllReviewsBygameId(puzzle._id.toString());
+            //let review = await puzzleData.getAllReviewsByPuzzleId(puzzle._id);
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...puzzle
+            });
+        }
+        else {
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...puzzle
+            });
+
+        }
+    }
+    catch (e) {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...puzzle
+        });
+    }
+
 });
 
 module.exports = router;

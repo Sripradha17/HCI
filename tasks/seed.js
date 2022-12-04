@@ -13,6 +13,26 @@ async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
 
+    //usert
+    const u11 = await users.createUser('Sripradha', 'Bhat', 'sbhat8@stevens.edu', 'Sripradha', 'Admin@123');
+    let datas = await users.getAllUsers();
+    const u11_id = datas[datas.length - 1]._id;
+    const u12 = await users.createUser('Karthik', 'Reddy', 'kreddy@gmail.com', 'Karthik', 'Admin@123');
+    datas = await users.getAllUsers();
+    const u12_id = datas[datas.length - 1]._id;
+    const u13 = await users.createUser('Sainikhil', 'Mallakunta', 'sainikhil@gmail.com', 'Sainikhil', 'Admin@123');
+    datas = await users.getAllUsers();
+    const u13_id = datas[datas.length - 1]._id;
+    const u14 = await users.createUser('Aishwarya', 'Pai', 'aishpai@gmail.com', 'Aishwarya', 'Admin@123');
+    datas = await users.getAllUsers();
+    const u14_id = datas[datas.length - 1]._id;
+    const u15 = await users.createUser('Admin', 'Admin', 'patrikhill@gmail.com', 'Admin', 'Admin@123');
+    datas = await users.getAllUsers();
+    const u15_id = datas[datas.length - 1]._id;
+    const u16 = await users.createUser('Shweta', 'Mishra', 'shweta@gmail.com', 'Shweta', 'Admin@123');
+    datas = await users.getAllUsers();
+    const u16_id = datas[datas.length - 1]._id;
+
     // Puzzle
     const H1 = await Puzzle.addPuzzle(
     /*name*/"The Talos Principle",
@@ -52,6 +72,9 @@ async function main() {
         ],
     /*youtube link*/  "https://www.youtube.com/embed/Vu9QFBWb7WQ"
     );
+    datas = await Puzzle.getAllPuzzles();
+    const p11_id = datas[datas.length - 1]._id;
+    // console.log(p11_id)
 
     const H2 = await Puzzle.addPuzzle(
     /*name*/ "Tetris",
@@ -92,6 +115,10 @@ async function main() {
             "../../../public/images/tetris.jpg"
         ],
     /*youtube link*/"https://www.youtube.com/embed/QQ5U-rN7Veg");
+    datas = await Puzzle.getAllPuzzles();
+    const p12_id = datas[datas.length - 1]._id;
+    console.log("start")
+    console.log(p12_id)
 
     const H3 = await Puzzle.addPuzzle(
     /*name*/"Portals 2",
@@ -134,6 +161,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/A0K5EXfgJnk"
     );
+    datas = await Puzzle.getAllPuzzles();
+    const p13_id = datas[datas.length - 1]._id;
+    // console.log(p13_id)
 
     const H4 = await Puzzle.addPuzzle(
     /*name*/"Baba Is You",
@@ -172,6 +202,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/z3_yA4HTJfs"
     );
+    datas = await Puzzle.getAllPuzzles();
+    const p14_id = datas[datas.length - 1]._id;
+    // console.log(p14_id)
 
     const H5 = await Puzzle.addPuzzle(
     /*name*/"Fez",
@@ -206,6 +239,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/lrEsNI0aCPk"
     );
+    datas = await Puzzle.getAllPuzzles();
+    const p15_id = datas[datas.length - 1]._id;
+    // console.log(p15_id)
 
     const H6 = await Puzzle.addPuzzle(
     /*name*/"Bejeweled 3",
@@ -249,6 +285,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/gVaADDW5TXk"
     );
+    datas = await Puzzle.getAllPuzzles();
+    const p16_id = datas[datas.length - 1]._id;
+    // console.log(p16_id)
 
     //action
     const A1 = await Action.addAction(
@@ -287,6 +326,9 @@ async function main() {
         ],
     /*youtube link*/"https://www.youtube.com/embed/nFBrgeSjj-0"
     );
+    datas = await Action.getAllActions();
+    const p21_id = datas[datas.length - 1]._id;
+    // console.log(p21_id)
 
     const A2 = await Action.addAction(
     /*name*/ "Batman: Arkham Asylums",
@@ -323,6 +365,9 @@ async function main() {
         ],
     /*youtube link*/"https://www.youtube.com/embed/T8bu2Y_cZb8"
     );
+    datas = await Action.getAllActions();
+    const p22_id = datas[datas.length - 1]._id;
+    // console.log(p22_id)
 
     const A3 = await Action.addAction(
     /*name*/ "Marvel's Guardians of Galaxys",
@@ -358,6 +403,9 @@ async function main() {
         ],
     /*youtube link*/"https://www.youtube.com/embed/oki56MQfiHI"
     );
+    datas = await Action.getAllActions();
+    const p23_id = datas[datas.length - 1]._id;
+    // console.log(p23_id)
 
     const A4 = await Action.addAction(
     /*name*/ "Assassins Creed Valhalla",
@@ -372,11 +420,11 @@ async function main() {
         ],
     /*refer*/ "https://www.ubisoft.com/en-us/game/assassins-creed/valhalla/news-updates/3fQgx19x3ZGi2lvWiRC75c/5-essential-tips-for-playing-assassins-creed-valhalla",
     /*cheat code*/[
-            "The open-world of Assassin's Creed Valhalla is huge and offers many opportunities for exploration, finding legendary weapons and equipment like Thor's armor and Thor's hammer, or for letting you put down roots. Don't get distracted by every marker, though. Instead, focus on the story first and do the rest at the end. This saves you a lot of frustration - but also brings special experiences, like finding Vinland.",
-            "While strolling through your settlement, look for speech bubbles and talk to the people in the village. For the most part, they will simply share some views or concerns. But every now and then you will be rewarded with new skills or extra missions. In addition, some romances are available to you through this as well.",
-            "In the beginning, after you have gained access to the building system, you should build a Brotherhood House of the Hidden Ones. This will enable new menus as well as quests. It can be constructed after you build a forge. When you reach the third settlement level, the seer's hut will immediately be unlocked. If the seer has a home, Valka awaits you with an interesting series of missions in a new area.",
+            "The open-world of Assassin's Creed Valhalla is huge and offers many opportunities for exploration, finding legendary weapons and equipment like Thor's armor and Thor's hammer, or for letting you put down roots. ",
+            "While strolling through your settlement, look for speech bubbles and talk to the people in the village. For the most part, they will simply share some views or concerns. ",
+            "In the beginning, after you have gained access to the building system, you should build a Brotherhood House of the Hidden Ones. This will enable new menus as well as quests. ",
             "Eivor can access a large number of skills in the AC Valhalla skill tree but many of them are hidden at the beginning. So work your way to the edge of a node as quickly as possible to gain access to new sections.",
-            "In Assassin's Creed Valhalla, you will realize that not all areas can be accessed without restrictions. If your level isn't high enough, you'll quickly find yourself in Valhalla. A place on one side of the river can have a significantly lower level than on the other. It is therefore always important to check the destinations meticulously on the map"
+            "In Assassin's Creed Valhalla, you will realize that not all areas can be accessed without restrictions. If your level isn't high enough, you'll quickly find yourself in Valhalla. "
         ],
     /*buy*/[
             "Steam", "https://store.steampowered.com/app/2208920/Assassins_Creed_Valhalla/",
@@ -397,6 +445,9 @@ async function main() {
         ],
     /*youtube link*/"https://www.youtube.com/embed/ssrNcwxALS4"
     );
+    datas = await Action.getAllActions();
+    const p24_id = datas[datas.length - 1]._id;
+    // console.log(p24_id)
 
     const A5 = await Action.addAction(
     /*name*/ "Resident Evil 4",
@@ -450,6 +501,9 @@ async function main() {
         ],
     /*youtube link*/"https://www.youtube.com/embed/gTMwx9-rKe8"
     );
+    datas = await Action.getAllActions();
+    const p25_id = datas[datas.length - 1]._id;
+    // console.log(p25_id)
 
     const A6 = await Action.addAction(
     /*name*/ "Uncharted 4 : A Thief's End",
@@ -486,15 +540,17 @@ async function main() {
             "Official", ""
         ],
     /*images*/[
-            "../../../public/images/Uncharted 4.gif",
-            "../../../public/images/Uncharted 4.gif",
-            "../../../public/images/Uncharted 4.gif",
-            "../../../public/images/Uncharted 4.gif",
-            "../../../public/images/Uncharted 4.gif"
+            "../../../public/images/Uncharted4.gif",
+            "../../../public/images/Uncharted4.gif",
+            "../../../public/images/Uncharted4.gif",
+            "../../../public/images/Uncharted4.gif",
+            "../../../public/images/Uncharted4.gif"
         ],
-    /*youtube link*/"https://www.youtube.com/mbed/hh5HV4iic1Y"
+    /*youtube link*/"https://www.youtube.com/embed/hh5HV4iic1Y"
     );
-
+    datas = await Action.getAllActions();
+    const p26_id = datas[datas.length - 1]._id;
+    // console.log(p26_id)
 
     //racing
     const R1 = await Racing.addRacing(
@@ -540,6 +596,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/RQ7JvIncd4Y"
     );
+    datas = await Racing.getAllRacings();
+    const p31_id = datas[datas.length - 1]._id;
+    // console.log(p31_id)
 
     const R2 = await Racing.addRacing(
     /*name*/"Forza Horizon 5",
@@ -582,6 +641,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/U3mEOHvSUyw"
     );
+    datas = await Racing.getAllRacings();
+    const p32_id = datas[datas.length - 1]._id;
+    // console.log(p32_id)
 
     const R3 = await Racing.addRacing(
     /*name*/"Need for Speed: Hot Pursuit",
@@ -627,6 +689,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/D6ouHWP0KrY"
     );
+    datas = await Racing.getAllRacings();
+    const p33_id = datas[datas.length - 1]._id;
+    // console.log(p33_id)
 
     const R4 = await Racing.addRacing(
     /*name*/"Project CARS 2",
@@ -642,7 +707,6 @@ async function main() {
             "If available, you can also select different variations (layouts) of a track from the scrolling panel to the right of the main track list. Save your choice by clicking Select.",
             "Now you can set the parameters for the race, including the duration, number of laps, date, and weather. Click Save to embed any changes you've made.",
             "Select the Opponent Settings panel to choose the number of opponents, their skill, and the type of cars you want to race against. Click Save to return to the Custom Event screen.",
-            "Use the Rules & Regulations panel to set up how severe the penalties will be for infractions such as overtaking under yellow flags, or exceeding track limits. Click Save to return to the previous screen, then click on Start."
         ],
     /*refer*/"https://www.projectcarsgame.com/two/01-quick-start-and-general-navigation/?lang=en-us",
     /*cheat code*/[
@@ -670,6 +734,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/nsaiLLhN5VQ"
     );
+    datas = await Racing.getAllRacings();
+    const p34_id = datas[datas.length - 1]._id;
+    // console.log(p34_id)
 
     const R5 = await Racing.addRacing(
     /*name*/"F1 2020",
@@ -714,6 +781,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/wF0vF1uXXYU"
     );
+    datas = await Racing.getAllRacings();
+    const p35_id = datas[datas.length - 1]._id;
+    // console.log(p35_id)
 
     const R6 = await Racing.addRacing(
     /*name*/"Forza Motorsport 7",
@@ -753,6 +823,9 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/hIqAmS0C3P0"
     );
+    datas = await Racing.getAllRacings();
+    const p36_id = datas[datas.length - 1]._id;
+    // console.log(p36_id)
 
     //sports
     const S1 = await Sports.addSports(
@@ -797,6 +870,9 @@ async function main() {
             "../../../public/images/Mario_Tennis.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/jxrHwK-e1vk");
+    datas = await Sports.getAllSportss();
+    const p41_id = datas[datas.length - 1]._id;
+    // console.log(p41_id)
 
     const S2 = await Sports.addSports(
     /*name*/ "Fifa 10",
@@ -830,6 +906,9 @@ async function main() {
             "../../../public/images/Fifa_10.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/xkNggYc7WfQ");
+    datas = await Sports.getAllSportss();
+    const p42_id = datas[datas.length - 1]._id;
+    // console.log(p42_id)
 
     const S3 = await Sports.addSports(
     /*name*/ "Wii Sports",
@@ -855,6 +934,9 @@ async function main() {
             "../../../public/images/wii.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/tftWbfIFePc");
+    datas = await Sports.getAllSportss();
+    const p43_id = datas[datas.length - 1]._id;
+    // console.log(p43_id)
 
     const S4 = await Sports.addSports(
     /*name*/ "NFL Street",
@@ -899,6 +981,9 @@ async function main() {
             "../../../public/images/nfl.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/ObkFpWj__KM");
+    datas = await Sports.getAllSportss();
+    const p44_id = datas[datas.length - 1]._id;
+    // console.log(p44_id)
 
     const S5 = await Sports.addSports(
     /*name*/ "Nintendo switch sports",
@@ -939,6 +1024,9 @@ async function main() {
             "../../../public/images/Nintendo.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/tiwjvBSS_Wk");
+    datas = await Sports.getAllSportss();
+    const p45_id = datas[datas.length - 1]._id;
+    // console.log(p45_id)
 
     const S6 = await Sports.addSports(
     /*name*/ "Mario Golf",
@@ -980,6 +1068,9 @@ async function main() {
             "../../../public/images/Mario_golf.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/5R-EuaUbPvc");
+    datas = await Sports.getAllSportss();
+    const p46_id = datas[datas.length - 1]._id;
+    // console.log(p46_id)
 
     //strategy
     const ST1 = await Strategy.addStrategy(
@@ -1020,6 +1111,9 @@ async function main() {
             "../../../public/images/offworld.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/wOjeepczC6g");
+    datas = await Strategy.getAllStrategys();
+    const p51_id = datas[datas.length - 1]._id;
+    // console.log(p51_id)
 
     const ST2 = await Strategy.addStrategy(
     /*name*/"Crusader Kings 3",
@@ -1074,6 +1168,9 @@ async function main() {
             "../../../public/images/crusader.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/xjn66Cl3pMA");
+    datas = await Strategy.getAllStrategys();
+    const p52_id = datas[datas.length - 1]._id;
+    // console.log(p52_id)
 
     const ST3 = await Strategy.addStrategy(
     /*name*/"Supremacy 1914",
@@ -1123,6 +1220,9 @@ async function main() {
             "../../../public/images/supremacy.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/o1u5Rxl02Ok");
+    datas = await Strategy.getAllStrategys();
+    const p53_id = datas[datas.length - 1]._id;
+    // console.log(p53_id)
 
     const ST4 = await Strategy.addStrategy(
     /*name*/ "XCOM 2",
@@ -1170,6 +1270,9 @@ async function main() {
             "../../../public/images/xcom2.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/n3bENBYSucQ");
+    datas = await Strategy.getAllStrategys();
+    const p54_id = datas[datas.length - 1]._id;
+    // console.log(p54_id)
 
     const ST5 = await Strategy.addStrategy(
     /*name*/"Homeworld: Deserts of Kharak",
@@ -1215,6 +1318,9 @@ async function main() {
             "../../../public/images/homeworld.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/QZNc6Cr5O-E");
+    datas = await Strategy.getAllStrategys();
+    const p55_id = datas[datas.length - 1]._id;
+    // console.log(p55_id)
 
     const ST6 = await Strategy.addStrategy(
     /*name*/"Civilization 6",
@@ -1265,18 +1371,794 @@ async function main() {
         ],
     /*youtube link*/ "https://www.youtube.com/embed/5KdE0p2joJw"
     );
+    datas = await Strategy.getAllStrategys();
+    const p56_id = datas[datas.length - 1]._id;
+    // console.log(p56_id)
 
-    // const RE1 = await reviews.createReview(u11_id, H25_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','4','11/24/2021');
-    // const RE2 = await reviews.createReview(u11_id, H23_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','3','11/25/2021');
-    // const RE3 = await reviews.createReview(u12_id, H20_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','1','11/26/2021');
-    // const RE4 = await reviews.createReview(u12_id, H21_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','5','11/27/2021');
-    // const RE5 = await reviews.createReview(u13_id, H2_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','4','11/28/2021');
-    // const RE6 = await reviews.createReview(u13_id, H5_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','2','11/29/2021');
-    // const RE7 = await reviews.createReview(u14_id, H1_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','5','11/20/2021');
-    // const RE8 = await reviews.createReview(u14_id, H12_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','5','11/1/2021');
-    // const RE9 = await reviews.createReview(u15_id, H17_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','5','11/3/2021');
-    // const RE10 = await reviews.createReview(u16_id, H25_id,'Extraordinary','This is one of the most special resorts I\'ve visited in my 60+ years. It starts with the people who work there, all of them thoughtful, kind, generous, and service-oriented. Then there is the low-rise buildings and the landscaping, like a tropical botanic garden with small waterways and koi ponds','5','11/2/2021');
+    //review
+    //action
+    try {
+        const RE1 = await reviews.createReview(
+    /*user id*/u11_id,
+    /*game id*/ p11_id,
+    /*title*/ 'Good world',
+    /*description*/ "The Talos Principle is a good world to get lost in. The strong, heady philosophical focus isn't as integrated into the puzzles as it initially suggested, but for those of you who like to flex your minds by action rather than heavy reading or contemplation, the puzzle sections deliver just as well. Much like Portal, The Talos Principle makes you feel smart just by playing it, as the bulk of the puzzles hit that sweet spot between too easy and near-impossible.",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
 
+    try {
+        const RE2 = await reviews.createReview(
+    /*user id*/u12_id,
+    /*game id*/ p11_id,
+    /*title*/ 'Amazing',
+    /*description*/ "The Talos Principle is a game of challenges and conundrums and philosophical wonderings, filled with logic puzzles and cerebral mysteries. Its chunky mechanical processes are underpinned by a compelling breadcrumb-trail narrative that tackles the intangible notion of humanity and consciousness. Consequently, despite playing a robot that interacts with computer terminals and takes instruction from a disembodied voice in the sky, it exudes personality and charm; its mechanical precision complementing its aesthetic qualities. For an experience bereft of human contact it boasts a very big heart indeed.",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        console.log("blah")
+        const RE3 = await reviews.createReview(
+    /*user id*/u13_id,
+    /*game id*/ p12_id,
+    /*title*/ 'Brilliant',
+    /*description*/ "It's a brilliant game. Nintendo made one of the best moves in the history of the gaming industry by pairing the new portable with this spectacular puzzler, as Tetris was a perfect fit for play on the go tons of people got hooked on this game 20 years ago. Seriously, it was a phenomenon. You think Angry Birds is huge today? That was Tetris back at the dawn of the '90s. A megaton hit.",
+    /*rating*/ '5',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE4 = await reviews.createReview(
+    /*user id*/u14_id,
+    /*game id*/ p12_id,
+    /*title*/ 'The Best Puzzle Game in the World.',
+    /*description*/ "Tetris is an addictive and fun puzzle game designed for all ages. The innovation is classic as you fit block after block to create horizontal lines that fade out once you've made them. Alexey Pajitnov has created a classic for any system. Basically, it has always been with Nintendo spawning new Tetris games (Playstation had one, Tetrisphere), but I recommend the following titles for you to play with. Tetris (not DX), for the Game Boy, reason not being the DX is the absence of everyone's favorite theme song. Then the New Tetris for Nintendo 64, because it is beautiful, has a great soundtrack and you can have four people to play against you. There are so many puzzle games out now, but Tetris is the best.",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE5 = await reviews.createReview(
+    /*user id*/u15_id,
+    /*game id*/ p13_id,
+    /*title*/ 'Extraordinary',
+    /*description*/ "Years ago, when Valve launched Portal as a fun Half-Life 2 mod, everybody was thrilled with the concept of the game. Portal 2 didn't just live up to the expectations I had, it slammed them harder into the ground, than I could have ever imagined. If this is no game of the year, I don't know what is... Portal 2's plot reaches much deeper into the history of Aperture Science, revealing new characters and shining a light on the events of Portal 1. Of course the humor most certainly made it to Portal 2 and I want to say, this game is even funnier than its predecessor. The new characters and the deeper plot make this game a must-buy, but that's not good enough for Aperture Science, I mean Valve: A co-op mode was the only thing missing from Portal 1, and they included it in this gem of video games. Challenging test chambers and hours of brain explosions await you and your partner in the Aperture Science Co-Operative Testing Initiative. If you liked Portal, you'll love Portal 2. And if you've never played Portal... do it now!",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE6 = await reviews.createReview(
+    /*user id*/u16_id,
+    /*game id*/ p13_id,
+    /*title*/ 'For science...',
+    /*description*/ "'You are now thinking in portals...' - this used to be the tag line for an underdog game-project which completed the Orange Box. While most of the people bought this product because of Half Life 2 - Episode 2 the main feature only had limited playtime. After exploring the game set of the the Orange Box players were stunned by 'Portal', an ego-shooter with no shooting and parallels to the Half Life universe.",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE7 = await reviews.createReview(
+    /*user id*/u11_id,
+    /*game id*/ p14_id,
+    /*title*/ 'Good!',
+    /*description*/ "Baba Is You finds the fun in the very idea of rules, which I understand may sound sacrilegious to some folks. Rules don't have a great reputation. They can be boring and restrictive and patronizing, weaponized by parents and bosses and governments and the total narcs of everyday life.",
+    /*rating*/ '3',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE8 = await reviews.createReview(
+    /*user id*/u12_id,
+    /*game id*/ p14_id,
+    /*title*/ 'Extraordinary',
+    /*description*/ "Baba Is You has slowly become one of my favourite puzzle games of all time alongside The Witness. Many indie games debut on PC and sometimes consoles before they come to mobile and I gave up on Baba Is You ever hitting mobile considering I didn't really see any discussion of more ports and figured we would see PS4 and Xbox versions before anything on mobile. After last week's surprise release, Baba Is You ($6.99) from Hempuli is now on iOS and Android in addition to PC and Nintendo Switch platforms and this new port is just about everything I hoped for in a mobile conversion but it is lacking in one key area.",
+    /*rating*/ '5',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE9 = await reviews.createReview(
+    /*user id*/u13_id,
+    /*game id*/ p15_id,
+    /*title*/ 'Confusing',
+    /*description*/ "The core game is pretty fun, but it feels a bit simple once you get used to the gimmick. Basically, walk around, hit a dead end, rotate the world a few times until a new platform is visible, go there and repeat. There were a few optical-illusion type puzzles with ladders where the solution is in view, but not obvious until you remember to think in the game's hybrid 3d-2d-physics. Those ones made me smile.",
+    /*rating*/ '2',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE10 = await reviews.createReview(
+    /*user id*/u14_id,
+    /*game id*/ p15_id,
+    /*title*/ 'Could be better',
+    /*description*/ "Intelligent, smart, good flow, creative, almost there. Good visuals, but the game is this, finding secret cubes hidden all around a different view 3d era. Good.",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE11 = await reviews.createReview(
+    /*user id*/u15_id,
+    /*game id*/ p16_id,
+    /*title*/ 'Fan!',
+    /*description*/ "If you're a fan of Bejeweled (and who isn't?), this game won't disappoint you. There are tons of modes to play and many options for 'quests' (mini games). It works well on the DS because it's cheap, portable, and easy to play with the stylus. There are a few odd missteps, like the weird deep voice that exclaims whenever you make a good move, but overall it's definitely worth the price if you're looking for a fun casual game.",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE12 = await reviews.createReview(
+    /*user id*/u16_id,
+    /*game id*/ p16_id,
+    /*title*/ 'Solid game!',
+    /*description*/ "Rise of the Tomb Raider is the most fun I've had with a Lara Croft game since 1996. Its story is full of the right kind of danger and intrigue, its tombs are dastardly, and I was as struck by its huge, romantic environments as I was as a kid playing the original. Although I could have done with a few more puzzles and fewer firefights overall, I enjoyed every rollicking, big-hearted second of it.",
+    /*rating*/ '4',
+    /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+
+    //action
+    try {
+        const RE13 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p21_id,
+        /*title*/ 'Amazing',
+        /*description*/ "The Talos Principle is a good world to get lost in. The strong, heady philosophical focus isn't as integrated into the puzzles as it initially suggested, but for those of you who like to flex your minds by action rather than heavy reading or contemplation, the puzzle sections deliver just as well. Much like Portal, The Talos Principle makes you feel smart just by playing it, as the bulk of the puzzles hit that sweet spot between too easy and near-impossible.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE14 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p21_id,
+        /*title*/ 'Challenging',
+        /*description*/ "Rise of the Tomb Raider raises the bar set by Lara's last outing with a rollicking adventure story, strong villains, gorgeous vistas, and smart puzzles – go off the main path to find the best stuff in dastardly optional tombs. Though the mandatory combat doesn't distinguish itself with challenging enemies unless you crank up the difficulty, Lara's newfound versatility on the battlefield makes fighting a lot more fun. Once again it's Lara herself, however, who steals the show, her complex ambitions and hardened resolve showing new sides to a character who has well and truly grown from survivor to the most fascinating action hero in video games today.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+
+        const RE15 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p22_id,
+        /*title*/ 'The Dark Knight does it again as his game is now my favorite video game based on a comic.',
+        /*description*/ "In fact, this game is probably the first game I have rated a ten and it not be a role playing game. It also saddens me a bit as Spider-man is my favorite comic book character of all time, however Batman has now claimed my favorite movie based on a comic character in 'The Dark Knight' and now my favorite video game. Spider-man has made some good games, but nothing as complete. They usually end up missing an element that detracts from game play such as the fact the web slinging kind of sucks as it is just him swinging from nothing and he might as well be flying or the web slinging is great, but the fighting and Spidey's strength is a non factor. This game though combines all of Batman's abilities to perfection as the fighting is fun and satisfying as you clobber wave after wave of Joker henchmen. His gadgets are done nicely as you throw batarangs, set explosive gel, and use grapples to perfection. Then if you are up to it you can hide in the shadows, perch on a gargoyle statue, or hide in the air vents to sneak up and silently take down Joker's men. The story too, is top notch. I enjoyed the opening as Batman once again escorts the Joker to Arkham asylum for the umpteenth time, only this time something seems strange as Joker seemingly wanted to get captured. Well you soon find out that Joker with some assistance from his crazy little gal sidekick Harley Quinn had a plan for escape and soon after the entire island of Arkham is under the Joker's control.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE16 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p22_id,
+        /*title*/ 'Best game .',
+        /*description*/ "First of all i am a huge batman fan. I was looking for a batman game for many years and EIDOS has just given the perfect game.This is the type of game i was expecting after Splinter cell, Hit man and Max Payne..... the game is excellent in all aspects (Story, game play, actions, level designs, graphics).The story starts with joker taking over the control of ARKHAM ASYLUM leaving batman into a trap. Batman has to save and infiltrate the arkham asylum to stop joker from doing bad to Gotham.Not only against joker but batman also has to fight against his enemies like croc, ivy, bane, scarecrow",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE17 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p23_id,
+        /*title*/ 'Worth every penny!!!',
+        /*description*/ "Worth every penny!!!The characters themselves are all motion capture which you'll notice, nothing spectacular but what you do notice is the dialogue between all the characters. Just the normal back and forth between traveling. Especially Drax. He's more witty and somewhat intelligent.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE18 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p23_id,
+        /*title*/ 'Fun experience',
+        /*description*/ "I was skeptical going in because of how disappointing The Avengers game was but GOTG is a lot of fun. The characters are all done well and have funny dialogue between each other. The story is interesting and keeps you invested. The gameplay is great and combat sequences are a blast. The cooperative element with the team puts it over the top. The game is also visually appealing and looks fantastic. Ready for some DLC. Great game and definitely worth your time.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE19 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p24_id,
+        /*title*/ 'Good!',
+        /*description*/ "Like Assassin's Creed Odyssey and Origins before it, Assassin's Creed Valhalla continues the series trajectory into a full-fledged open-world RPG. Though Ubisoft has dug up some of its stealth-action roots to make that style more appealing, Valhalla’s focus is on the absolutely massive recreation of Dark Ages England, brought to life with stunning beauty and a level of detail I've rarely seen. It's been an impressive showcase for the Xbox Series X (and presumably the PlayStation 5, but Ubisoft only gave us access to the Xbox version ahead of launch), playing in 4K and a near-constant 60 frames per second. You have to put up with some new progression system ideas that don’t quite deliver, and an abundance of bugs, but there’s a staggering number of things to do, explore, and discover in and around Valhalla’s more atmospheric storytelling.",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE20 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p24_id,
+        /*title*/ 'Innovating',
+        /*description*/ "Assassin's Creed Valhalla fully embraces the series' heritage. The 12th major Assassin's Creed game shows a keen awareness of the history and gameplay innovations of the saga, and it feels like a love letter to the franchise as a whole. This makes the game a far more rewarding experience for longtime fans, though newcomers can still enjoy Valhalla's combat, emphasis on exploration, and mystery-driven narrative without years of time spent in the Animus.  ",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE21 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p25_id,
+        /*title*/ 'Best GC Game Yet!',
+        /*description*/ "After thoroughly playing through Resident Evil 4, I still think that Resident Evil 4 is one of the best from of the Resident Evil series. It's nice to see Capcom taking a step away from the regular zombies which they regularly use.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE22 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p25_id,
+        /*title*/ 'Excellent!',
+        /*description*/ "Intelligent, smart, good flow, creative, almost there. Good visuals, but the game is this, finding secret cubes hidden all around a different view 3d era. Good.You play as Leon S. Kennedy. You'll probably recognize the name from Resident Evil 2. Your assignment is to rescue the daughter of the President of the United States. After which, Leon travels to Spain to search for Ashley. The odds of success are strictly stacked against Leon.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE23 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p26_id,
+        /*title*/ 'A great wrap-up.',
+        /*description*/ "It's pretty crazy to me how so many folks actually consider this to be their favorite of the franchise. Don't get me wrong -- I loved this game to death and found it to be an extremely satisfying ending to Nathan Drake's story, but it's not better than the masterpiece that was Uncharted 2... It just isn't. I'd say it's about on par with the original and 3.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE24 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p26_id,
+        /*title*/ 'A fitting end for Nathan and co.',
+        /*description*/ "The game is beautiful - really beautiful, and the cutscenes are beautiful. The acting is wildly good - throughout, and when the game ends, one also feels that Drake's story is complete. Shoreline is generic, but a sword enemy that gives Drake a lot of beatings - and he ends up in my playthrough also with a broken arm and a broken nose. Oh, and that swordfight! However, there are a lot of inaccuracies regarding the historical impact of this game, which is partly a bit annoying, now that it's history, the game also ties in.",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        //racing
+        const RE25 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p31_id,
+        /*title*/ 'Best rally game',
+        /*description*/ "Dirt Rally 2.0 is the best rally game there is on the current generation consoles. The graphic effects are amazing, the authentic and challenging driving is unmatched and we can only hope Codemasters will not put microtransactions in this epic game.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE26 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p31_id,
+        /*title*/ 'FFB is poor',
+        /*description*/ "I do enjoy playing Dirt Rally 2.0 but only for short periods. Mainly because it only takes a short period to experience all the original content, after that point codemasters expects me to pay for extra cars and locations. This would be acceptable if the original roster wasn’t so small. It is clear that all this DLC was created well in advance of launch (especially since so many of it is from Dirt Rally 1 or Dirt 4). FFB is poor but doesn’t make the game unplayable. The audio is excellent and the menus are very clear and easy to navigate. Codemaaters are usually a reliable source of quality racing games, however, it appears greed has almost ruined this instalment of the Dirt franchise",
+        /*rating*/ '2',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE27 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p32_id,
+        /*title*/ 'Stunning.',
+        /*description*/ "Let's talk. Forza Horizon 1 had good story, Horizon 2 had good lighting and pretty map, Horizon 3 had a crazy diverse map and a lot to do in it, Horizon 4 had good update support and online functionality, Forza Horizon 5 has all of it. And SO MUCH MORE OF IT.More cars, more customization, bigger, better map, ungodly amount of campaign AND online content, a solid and compelling story, unbelievable visuals, great physics, better car sounds, a quality of life overhaul, such an amazing attention to detail, culture-wise, I could go on for hours.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE28 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p32_id,
+        /*title*/ 'Awesome and involving',
+        /*description*/ "Spectacular visuals, surprisingly good story and excellent control of the game makes this Forza to be a blast. If you want to be amazed and hooked to a racey game, this is the one you should be playing right away.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE29 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p33_id,
+        /*title*/ 'A game ahead of its time, good nostalgic memories.',
+        /*description*/ "I still remember the day going to GameStop with my friend after school and buying the physical disc for this around the time it came out back in 2010. Probably one of the best multiplayer experiences ever to be had around that time period. Looking back at this now, I never realized how much this game was ahead of its time, especially when it came to innovation and multiplayer involvement.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE30 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p33_id,
+        /*title*/ 'A potential classic ruined by greed',
+        /*description*/ "Developed by Criterion, the same team behind Burnout Paradise, you can definitely feel a lot of Burnout DNA in this Need for Speed entry. Sadly, since it's published by EA, do not expect to get the full game, you'll have to plonk down a further £45 on the PSN for that privilege. And since the game is now almost 8 years old you can expect online play to be dead. Trust me, this is one Platinum trophy that you won't be winning.",
+        /*rating*/ '2',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE31 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p34_id,
+        /*title*/ 'Ridiculous',
+        /*description*/ "I've regretted buying few games as much as this one. It's just ridiculously hard and unforgiving. If you've played Dirt: Rally then you might love this game. I guess I didn't realize how ruthless the game was before buying it. Granted, I'm not the best at racing games, but even after a few hours of play I wasn't able to even advance beyond the kart class. I will say the graphics and sound are really good, so if you love a hardcore racing game, this is for you.",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE32 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p34_id,
+        /*title*/ 'No potential',
+        /*description*/ "Project Cars 2 may do a great many things exceptionally well, but it’s hard to look past the mountain of gaffes that quickly pile up on and off the track. Racing, after all, is about results, not potential.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE33 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p35_id,
+        /*title*/ 'Could be better',
+        /*description*/ "When I heard the F1 2020 would have a My Team, much like many long term fans of the franchise. I was ecstatic as it was a feature the community had wanted for a long time. However despite the introduction of my team and the re-added Split-screen, not seen since F1 2013, the basic formula for the game has not changed since last years game which is both a good and bad thing.Let’s start with why it’s a good thing. F1 2019 is a stellar game, everything about it felt clean and polished, and 2020 is exactly the same the graphics are among some of the best racing graphics on console right now, the handling model is not to different, so it feels familiar to players like me, but it's also not difficult to get to grips with.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE34 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p35_id,
+        /*title*/ 'Flaw',
+        /*description*/ "F1 2020 is a good racing game. The racing action is intense and the game options are endless. It is also cool that you can start your own team in career mode. Still, the game suffers from two flaws: the gameplay is almost identical to F1 2019 and the loading times disrupt the fun.",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE35 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p36_id,
+        /*title*/ 'Feature rich',
+        /*description*/ "Even with an imperfect roster and a selection of modes that doesn't compare to the comprehensiveness of Forza 6 at launch, Forza Motorsport 7 is still a feature-rich and competition-diverse bundle of racing events that keep you coming back for more. The ability to control the weather to create rich, painterly cloudy backdrops goes a long way in making up for the lack of zombie modes and the Toyota MR2.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE36 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p36_id,
+        /*title*/ 'Bad graphics',
+        /*description*/ "Graphically, the cars are mostly well modeled. Environment, however, is straight out of early 2000's, increasing that TOCA 3 nostalgia. Compared to F-Horizon 4, which is an open world game - the environments are much uglier, despite being more contained and thus theoretically allowing for much more detail. Theoretically only, in this case. Furthermore, the lightning and reflections are for the most part worse as well.Sound is okay, I guess. Some of the cars sound like lawn-movers on crack. However, this seems to be an area the Forza games are consistently serviceable, but nothing more. There's a lot of cars and I guess the devs don't have the resources to record sounds for all of them + various configurations / upgrades so they use generic soundscape and tweak it a little.",
+        /*rating*/ '2',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+
+    //sports
+    try {
+        const RE37 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p41_id,
+        /*title*/ 'Simple and easy yet exciting',
+        /*description*/ "Veteran gamers might find the single player mode a little too easy, but for younger gamers it should be a blast. The best part of the game is the multiplayer. Up to four people can play simultaneously, in modes such as 2 versus 2. Another great feature is the numerous different courses and challenges. One court, for instance, tilts back and forth depending how you walk on it. There is also over 12 Nintendo characters to chose. From the most popular such as Mario, to old favorites such as Donkey Kong Jr., and to everyone's favorite nemesis, Bowser.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE38 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p41_id,
+        /*title*/ 'Good!',
+        /*description*/ "So first of all i wanted to just say that in this game was waluigi's very first appearance in the mario franchise and he is not only a very funny and wacky character moving on in the mario franchise but has also been my all time favorite mario character but it's too bad that nintendo doesn't care about him that much and neither does the smash bros series either but at least there are a lot of people out there in this world that show him the respect and appreciation that he rightfully deserves but also i do appreciate how they gave luigi a rival just like how mario has his own rival and he even has a really cool looking design and speaking of design this game even for the year that originally came out in this game still looks very nice with good textures on the characters showing their classic designs in 3d and even updating original 3d models for characters like wario and luigi who haven't been in 3d that much back then but now have started to develop into that state a whole lot more with brand new spin off games and main series. But also i love the gameplay and how fluent it looks and feels and also how enjoyable it is to be hitting the tennis ball back and forth and not really knowing what the other player is going to do and where he or she will hit the ball next and it also has some reactionary feats to accomplish as well like having to react to when to hit the ball and also how to make a very good and fast shot to trick your opponents but i also love how you can play doubles in this game like other real life tennis matches out there where that is a thing but i also love how this is all running in a 3 dimensional space where things are easier to see and visualize because having a game where the ball is coming towards you at a 3 dimensional angle well you're going to need to see things at a very specific angle in order to not only play the game properly but also how to see things better in general when playing things like a sports game for example. ",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE39 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p42_id,
+        /*title*/ 'The best sports game',
+        /*description*/ "Fifa 10 has to be the best game I have ever bought{mw2} runs it v. close The thing that really hooked me was the ease at which full flowing moves could be accomplished(when you know what your doing)and the huge amount of skills and celebrations available. The thing that annoyed me about has nothing to do with the game Its to do with EA. I think EA finally made the complete football game and then realised they'd set themselves up for a huge financial downfall for the next 5 years If a game cant be improved on what do they do? They strip away the things that made it excellent(like MW2-MW3) and add bells and whistles,it really annoys me Fifa 11,12 and now 13 have returned to the dark days off 06,05,04 where the ball is a pudding,getting past ppl=next to impossible and stringing moves together or even scoring a goal is more luck than skill However the one that killed my desire for future EA features was the Draconian decision to close the Fifa 10 servers,the ultimate way to get ppl buying their future products,its unfair,totally consumer-unfriendly.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE40 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p42_id,
+        /*title*/ 'Awesome',
+        /*description*/ "Some of you may be saying call of duty modern warfare 2 was the best game out that year and i can see why, but when you play this it feels like your actually watching football. with modern warfare it tries to make you feel like your in the war but it doesn't have that shock factor of realism that this has. this has so many games in this one disk its unbelievable. the manager mode has improved on everything that felt unrealistic on '09. the be a pro season is amazing it feels like your on the team. for those who can't play footy games very well there's a lounge mode where you can glitch the game and/or give yourself a handicap. it has possibly every league in the world. the one thing this game doesn't have is the FIFA world cup but they've sorted that out and made it a game on its own. when i bought this i also bought FIFA 2001, the improvements EA has made over the years is unbelievable. the only way this game can be topped is when FIFA 11 comes out in November/December time. this game is a must buy, get this or it's rival pro evolution soccer. but they are good in their own ways.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE41 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p43_id,
+        /*title*/ 'Five Games for the price of one',
+        /*description*/ "Wii Sports is the very game you will get with your Nintendo Wii.The game really showcases how the Wii is suppose to be played and it would get you along with your friends and family to get up and actually have a blast.Wii Sports is great for the fact it comes with Five Games that allow for hours of fun and will have everyone trying to outdo the other.The Five games you get are Baseball, Golf, Tennis, Bowling and Boxing.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE42 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p43_id,
+        /*title*/ 'Fun, if limited',
+        /*description*/ "This being one of the launch games for the Wii console, it was made with the primary reasons being to give buyers something to immediately play when they got one, and to utilize, and give a first-hand taste of, the unique aspects of the platform, on account of the technology. With that said, it is definitely entertaining. As the very first thing, you create a Mii(and that is not solely for this particular title, I think originally, they meant them to go for most releases, and then later, the selection was expanded), which is the mental projection of your digital self. The idea is to make it look like you, but you are not at all limited to that, and it seems like you can create as many as you'd like. You can customize the appearance to a great extent, with a scaling bar for height and one for... ahem... width, and multiple choices for head shape, nose, glasses or not(those last three, you can even move up and down), hair, facial features(red cheeks, freckles, etc.), and the color of the eyes, skin and the clothes it wears(what exactly they are will vary on what you are doing). That broad a spectrum allows for countless ones that are nothing alike. At this point, control wasn't perfectly smoothed out, and the VG's did get better from here on. The Wii-Mote's sensitivity is used well(not as excellently as in Wii Fit, mind you), and this goes about as far as it can in having your avatar respond to the movements you make with it. A lot(not all) of the stuff actually feels a lot like doing it for real.",
+        /*rating*/ '2',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE43 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p44_id,
+        /*title*/ 'Great!',
+        /*description*/ "A great game with just a few beefs: poor use of great licensed music, slightly lacking implementation of the Gamebreaker feature, pointless hype about all the style moves (they're best used for taunting and bragging rights), and an insane difficulty curve in the Challenge mode which may send you to the store to buy new controllers.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE44 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p44_id,
+        /*title*/ 'Bad!',
+        /*description*/ "This game misses the point and misses it badly. At first glance, the barely above average graphics, the hip-hop version of NFL uniforms, and the bone cracking sound during gameplay certainly seem like the game will have potential. But for the reasons stated in this review, no serious football gamer will play this longer than a week.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE45 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p45_id,
+        /*title*/ 'Good Game!',
+        /*description*/ "Nintendo Switch Sports (2022) is a really fun and good game. I will say the online multiplayer does need a few tweaks as it takes forever just to find other players. I also wish there were a few more sports to play as they could have easily added sports from wii sports and wii sports resort. Overall it's a very good game and is even better with friends.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE46 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p45_id,
+        /*title*/ 'Noy surprised!',
+        /*description*/ "Color me not surprised, but it's not nearly as great as the original. While I do like that they tried to combine both Wii Sports and Wii Resort into one game, the game doesn't have a huge selection. I would of rather seen them either include all of Wii Sports or include both Wii and Switch Sports, but sadly only had a mix and match. They didn't even have baseball.... Or boxing. They did have bowling, which is always fun, and others like sword fighting and badminton, which were fun too. It just didn't hit the same Wii Sports did, and I just didn't have as much fun as I was hoping. Still, I'd say give it a shot if you liked Wii Sports or Wii Resort.",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE47 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p46_id,
+        /*title*/ 'One of the finest sports videogames I own - surprisingly!',
+        /*description*/ "Who ever thought a title such as 'Mario Golf' would actually amount to anything?. Surprisingly it's well-made and addictive; for anyone who plays golf (such as myself) it's rather fun and realistic. I had expected some cartoony-type Mario videogame where they use golf as a simple backdrop, but it actually is a realistic golf game, albeit one with silly characters and landscapes.Overall though everything else is very realistic and it's a fine videogame - I've owned it for years and still enjoy playing it. If you haven't gotten an upgrade from an N64 yet, this is one of the 'must-buy' games, even for non-sports-fans and sports-fans alike. Oh, and Mario fans, although they may be a bit more disappointed since it isn't typical Mario fare!",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE48 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p46_id,
+        /*title*/ 'MID',
+        /*description*/ "Kinda MID tbh. Just as mid as endgame. The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. Beep A single lap should be completed each time you hear this sound. Ding Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.",
+        /*rating*/ '2',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    //Strategy
+    try {
+        const RE49 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p51_id,
+        /*title*/ 'Fantastic',
+        /*description*/ "A fantastic multiplayer strategy game, where wits not twitches are rewarded. I think it's best played against humans, and I've sunk nearly 200 hours into it so far and anticipate many more hours. I think people with a background in strategy board games are really going to love this one. I haven't enjoyed a game this much since Colonization and MOO2 back in the days of Windows 95!",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE50 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p51_id,
+        /*title*/ 'Could be better',
+        /*description*/ "Its a solid game, remember me about Sierras' Outpost. The game works pretty well, solid FPS and no crashes but i feel that with the same money you could buy way better strategy games like Crusader Kings 2 and Civilization VI. This game can hardly deliver about 50 hours of fun because after you finish the first match you already seem all. If you can grab this game for $15,00 bucks or less its ok, anything that costs more than $15 you are wasting your money",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE51 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p52_id,
+        /*title*/ 'Perfect',
+        /*description*/ "I'm not writing this review to tell anyone that all the people who love this game are wrong, only that it isn't great at everything it tries to do. What Crusader Kings 3 does well, it does VERY well. It's great at weaving emergent narrative, and that's not easy, because I can't think of another game that does it as well. But Crusader Kings is not meant to be Sims Medieval alone, it's supposed to be a Grand Strategy game, and it's mediocre as such, at best.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE52 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p52_id,
+        /*title*/ 'Midiocre',
+        /*description*/ "I'm not writing this review to tell anyone that all the people who love this game are wrong, only that it isn't great at everything it tries to do. What Crusader Kings 3 does well, it does VERY well. It's great at weaving emergent narrative, and that's not easy, because I can't think of another game that does it as well. But Crusader Kings is not meant to be Sims Medieval alone, it's supposed to be a Grand Strategy game, and it's mediocre as such, at best.Even the game's strength isn't perfect. In a game that focuses so heavily on intrigue, it's odd that I can see exactly what every other character in the world thinks of me.",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE53 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p53_id,
+        /*title*/ 'Great game',
+        /*description*/ "Great game involving realistic(ish) military tactics and with highly addicting gameplay. Especially fun to coordinate with friends and attack other countries, defend from other countries and to just run the economy and expand the empire. Downside is that it is quite a slow game in which it can take a long time to do certain things such as moving armies. Probably intended as a game to potentially run in the background of doing something else and checking on the status of it occasionally.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE54 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p53_id,
+        /*title*/ 'Immersive Strategy',
+        /*description*/ "This is not a game that you play once and forget; the world map is huge, and the options available are vast. Your game may go on for months at a time!Supremacy 1914 seems pretty interesting and will definitely be one of your favorites if you like this genre. There is also role playing going on which will make you feel at home.",
+        /*rating*/ '2',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE55 = await reviews.createReview(
+        /*user id*/u11_id,
+        /*game id*/ p54_id,
+        /*title*/ 'Great!',
+        /*description*/ "A great game with just a few beefs: poor use of great licensed music, slightly lacking implementation of the Gamebreaker feature, pointless hype about all the style moves (they're best used for taunting and bragging rights), and an insane difficulty curve in the Challenge mode which may send you to the store to buy new controllers.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE56 = await reviews.createReview(
+        /*user id*/u12_id,
+        /*game id*/ p54_id,
+        /*title*/ 'Bad!',
+        /*description*/ "This game misses the point and misses it badly. At first glance, the barely above average graphics, the hip-hop version of NFL uniforms, and the bone cracking sound during gameplay certainly seem like the game will have potential. But for the reasons stated in this review, no serious football gamer will play this longer than a week.",
+        /*rating*/ '5',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE57 = await reviews.createReview(
+        /*user id*/u13_id,
+        /*game id*/ p55_id,
+        /*title*/ 'Good Game!',
+        /*description*/ "Homeworld is one of those franchises that its story holds up really well. Being a prequel fits in so well. Deserts of Kharak plays just like Homeworld Originals except on land. It has always had one of the best RTS gameplay designs. The sounds alone are amazing. This game is a must buy for those who loved the Homeworld series and a must buy for RTS fans. Story holds up well, gameplay is fun and simple and the game design is top notch. While the visuals aren't super computer pushing, its enough to create an amazing atmosphere for this great game.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE58 = await reviews.createReview(
+        /*user id*/u14_id,
+        /*game id*/ p55_id,
+        /*title*/ 'Not easy!',
+        /*description*/ "Homeworld is not an easy name to tackle, and yet Blackbird Interactive did a great job, maintaining some of the brightest ideas seen in the series, and adapting its gameplay in order to support the new location. It is not as memorable as its predecessors, but it’s still a strong and narrative driven rts, that will be appreciated by fans of the genre.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE59 = await reviews.createReview(
+        /*user id*/u15_id,
+        /*game id*/ p56_id,
+        /*title*/ 'Ultimate game',
+        /*description*/ "Civilization 6 is the ultimate digital board game. More than ever in the series, the board—the world—is the soul of every opportunity and challenge. As usual for Civ, I build empires, compete for a set of victory conditions, and fend off warmongering leaders like that scoundrel Peter the Great. But I’m also playing for, with, and against the board. Forests and deserts and resource-rich tundras each influence the flow of my civilization, granting us boons and burdening us with lasting weaknesses. Bands of barbarians put my farms in crisis, but also open up opportunities to speed the development of my military techs. The glorious, challenging dynamics that emerge from Civ 6’s redesigned maps left me with no question that the storied series has crowned a new king.",
+        /*rating*/ '4',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
+
+    try {
+        const RE60 = await reviews.createReview(
+        /*user id*/u16_id,
+        /*game id*/ p56_id,
+        /*title*/ 'Overwhelming',
+        /*description*/ "There are so many of these new features that it could feel overwhelming at times. The depth and variety of systems resembles a Civ game that’s already had two or three expansions added on top—from the new Districts that perform specific tasks and spread my cities out into an often messy but somehow pleasing sprawl, to a whole separate 'tech' tree for civic and cultural progress that ties into a sort of collectible card game for mixing policy bonuses to build a unique government. The feature richness averts the common problem with strategy games on day one where I feel I’m being sold a platform on which a great game will eventually be built. But I also worry that Firaxis may have sailed a bit beyond the calm waters of accessibility for more casual strategy fans, and any expansions that add major features or new systems could heighten the barrier to newcomers.",
+        /*rating*/ '3',
+        /*date od review*/ '12/01/2022'
+        );
+    } catch (error) {
+        console.log(error)
+    }
 
     console.log('Done seeding database');
     await db.serverConfig.close();

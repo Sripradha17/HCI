@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css" crossorigin="anonymous" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../../public/css/toastr.css" />
     <link rel="stylesheet" href="../../public/css/select2.min.css" />
     <link rel="stylesheet" href="../../public/css/main.css" />
@@ -16,40 +17,60 @@
 
 <body>
     <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img class="nav-img-icon" src="../../public/images/main.jpg" />&nbsp;&nbsp;
-            <a class="navbar-brand" href="/">Gameover</a>
-            <marquee style="color: #fff;">Upcoming releases:
-                Gotham Knights
-                OCT 25</marquee>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Category</button>
-                <div id="mydropdown" class="dropdown-content">
-                    <a href="/puzzle">Puzzle</a>
-                    <a href="/action">Action/Adventure</a>
-                    <a href="/racing">Racing</a>
-                    <a href="/sports">Sports</a>
-                    <a href="/strategy">Strategy</a>
+        <ul class="nav-head">
+            <li class="nav-list">
+                <div id="menu-container" class="menu-container">
+                    <div id="menu-wrapper">
+                        <div id="hamburger-menu"><span></span><span></span><span></span></div>
+                        <!-- hamburger-menu -->
+                    </div>
+                    <!-- menu-wrapper -->
+                    <ul class="menu-list accordion">
+                        {{#if user}}
+                        <li id="nav1" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">Category</a>
+                        </li>
+                        <!-- accordion-toggle -->
+                        <ul class="menu-submenu accordion-content">
+                            <li><a href="/puzzle">Puzzle</a></li>
+                            <li><a href="/action">Action/Adventure</a></li>
+                            <li><a href="/racing">Racing</a></li>
+                            <li><a href="/sports">Sports</a></li>
+                            <li><a href="/strategy">Strategy</a></li>
+                        </ul>
+                        <!-- menu-submenu accordon-content-->
+                        <li id="nav2" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">{{user.firstName}} {{user.lastName}}</a>
+                        </li>
+                        <!-- accordion-toggle -->
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="/profile">My Profile</a></li>
+                            <li><a class="head" href="/myreview">My reviews</a></li>
+                            <li><a class="head" href="/logout">Logout</a></li>
+                        </ul>
+                        {{else}}
+                        <!-- menu-submenu accordon-content-->
+                        <li id="nav3" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a href="/login"><span class="fa fa-user"></span> Login</a>
+                        </li>
+                        <li id="nav3" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a href="/signup"><span class="fa fa-sign-in"></span> Sign up</a>
+                        </li>
+                        {{/if}}
+                        <!-- menu-submenu accordon-content-->
+                    </ul>
+                    <!-- menu-list accordion-->
                 </div>
-            </div>
-            <script>
-                function myFunction() {
-                    document.getElementById("mydropdown").classList.toggle("show");
-                }
-
-                window.onclick = function (event) {
-                    if (!event.target.matches('.dropbtn')) {
-                        var dropdowns = document.getElementsByClassName("dropdown-content");
-                        for (let i = 0; i < dropdowns.length; i++) {
-                            var open = dropdowns[i];
-                            if (open.classList.contains('show')) {
-                                open.classList.remove('show');
-                            }
-                        }
-                    }
-                }
-            </script>
-        </nav>
+                <!-- menu-container -->
+            </li>
+            <li class="nav-list" style="float: right;"><img class="nav-img-icon" src="../../public/images/main.jpg" />
+            </li>
+            <li class="nav-list" style="float: right;"><a class="navbar-brand" href="/">Gameover</a></li>
+        </ul>
     </header>
     <main>
         <div id="loader" data-wordLoad="Please Waiting" style="display: none;"></div>
@@ -57,7 +78,28 @@
 
     </main>
 
+    <script>$(function () {
+            function slideMenu() {
+                var activeState = $("#menu-container .menu-list").hasClass("active");
+                $("#menu-container .menu-list").animate({ left: activeState ? "0%" : "-100%" }, 400);
+            }
+            $("#menu-wrapper").click(function (event) {
+                event.stopPropagation();
+                $("#hamburger-menu").toggleClass("open");
+                $("#menu-container .menu-list").toggleClass("active");
+                slideMenu();
 
+                $("body").toggleClass("overflow-hidden");
+            });
+
+            $(".menu-list").find(".accordion-toggle").click(function () {
+                $(this).next().toggleClass("open").slideToggle("fast");
+                $(this).toggleClass("active-tab").find(".menu-link").toggleClass("active");
+
+                $(".menu-list .accordion-content").not($(this).next()).slideUp("fast").removeClass("open");
+                $(".menu-list .accordion-toggle").not(jQuery(this)).removeClass("active-tab").find(".menu-link").removeClass("active");
+            });
+        }); // jQuery load</script>
     <script src="../../public/js/jquery.min.js" crossorigin="anonymous"></script>
     <script src="../../public/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="../../public/js/jquery.validate.min.js" crossorigin="anonymous"></script>

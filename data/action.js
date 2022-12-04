@@ -1,23 +1,25 @@
 const mongoCollections = require('../config/mongoCollections');
-const action = mongoCollections.action;
+const actionGame = mongoCollections.action;
 const validation = require('../data/validation');
 const bcrypt = require('bcrypt');
 const saltRounds = 16;
 let { ObjectId } = require('mongodb');
 const { response } = require('express');
+const { action } = require('../config/mongoCollections');
 
 async function getAllActions() {
-    const actionCollection = await action();
+    const actionCollection = await actionGame();
     const allAction = await actionCollection.find({}).toArray();
     for (let x of allAction) {
         x._id = x._id.toString();
-        // console.log(x)
         if (x.images.length < 1) {
             x.image = "no-action-image.png";
         }
         else {
             x.image = x.images[0];
         }
+
+        x.partAbout = x.about.substr(0, 60)
     }
 
     return allAction;
@@ -25,33 +27,49 @@ async function getAllActions() {
 
 async function getActionById(actionId) {
 
-    const actionCollection = await action();
+    const actionCollection = await actionGame();
     let actionOne = await actionCollection.findOne({ _id: ObjectId(actionId.trim()) });
     if (actionOne === null) {
         throw "No action game with Id found"
     }
-    // console.log(x)
+
     if (actionOne.images.length < 1) {
         actionOne.image = "no-action-image.png";
     }
     else {
-        actionOne.imageOne = actionOne.images[0];
-        actionOne.imageTwo = actionOne.images[1];
-        actionOne.imageThree = actionOne.images[2];
-        actionOne.imageFour = actionOne.images[3];
-        actionOne.imageFive = actionOne.images[4];
+        actionOne.imageOne = actionOne.images[1];
+        actionOne.imageTwo = actionOne.images[2];
+        actionOne.imageThree = actionOne.images[3];
+        actionOne.imageFour = actionOne.images[4];
     }
 
-    actionOne.instructionSet=[];
-    actionOne.cheatCodesSet=[]
-    for (let i = 0; i < 5; i++) {
-        actionOne.instructionSet.push(actionOne.instruction[i])
-    }
-
+    actionOne.cheatCodesSet = []
     for (let j = 0; j < 5; j++) {
-        actionOne.cheatCodesSet.push(actionOne.cheatCodes[j])
+        if (actionOne.cheatCodes[j]) {
+            actionOne.cheatCodesSet.push(actionOne.cheatCodes[j])
+        }else{
+            break;
+        }
     }
     
+    actionOne.urlNameOne = actionOne.url[0];
+    actionOne.urlOne = actionOne.url[1]
+    actionOne.urlNameTwo = actionOne.url[2];
+    actionOne.urlTwo = actionOne.url[3]
+    actionOne.urlNameThree = actionOne.url[4];
+    actionOne.urlThree = actionOne.url[5]
+    actionOne.urlNameFour = actionOne.url[6];
+    actionOne.urlFour = actionOne.url[7]
+    actionOne.urlNameFive = actionOne.url[8];
+    actionOne.urlFive = actionOne.url[9]
+    actionOne.urlNameSix = actionOne.url[10];
+    actionOne.urlSix = actionOne.url[11]
+    actionOne.urlNameSeven = actionOne.url[12];
+    actionOne.urlSeven = actionOne.url[13]
+    actionOne.urlNameEight = actionOne.url[14];
+    actionOne.urlEight = actionOne.url[15]
+    console.log(actionOne)
+
     return actionOne
 
 }
@@ -65,7 +83,7 @@ async function addAction(name, about, instruction, refer, cheatCodes, url, image
     await validation.checkUrl(refer);
     await validation.checkUrl(link);
     await validation.checkimage(images);
-    const actionCollection = await action();
+    const actionCollection = await actionGame();
     let newAction = {
         name: name,
         about: about,
@@ -75,6 +93,7 @@ async function addAction(name, about, instruction, refer, cheatCodes, url, image
         refer: refer,
         link: link,
         images: images,
+        reviews: [],
         rating: 0
     }
     const insertInfo = await actionCollection.insertOne(newAction);
@@ -82,8 +101,49 @@ async function addAction(name, about, instruction, refer, cheatCodes, url, image
     return true;
 }
 
+async function addReviewIds(gid, reviewId, avg) {
+    let action = await this.getActionById(gid);
+    console.log(action)
+    if (action === null) throw 'No user found with that id.';
+    let addReview = {
+        reviewId
+    };
+    let updateAction = {
+        rating: avg
+    };
+    const actionCollection = await actionGame();
+    const updatedReview = await actionCollection.updateOne({ _id: ObjectId(gid) },
+        { $push: { reviews: addReview } });
+    console.log(updatedReview)
+
+    if (updatedReview.modifiedCount === 0) throw 'Could not adde review.';
+    const updatedInfo = await actionCollection.updateOne({ _id: ObjectId(gid) },
+        { $set: updateAction });
+    if (updatedInfo.modifiedCount === 0) throw 'Could not adde review.';
+    return true;
+}
+
+async function removeReviewIds(gid, reviewId, avg) {
+    let action = (await this.getActionById(gid));
+    if (action === null) throw 'No user found with that id.';
+    let addReview = {
+        reviewId
+    };
+    let updateAction = {
+        rating: avg
+    };
+    const actionCollection = await actionGame();
+    const updatedReview = await actionCollection.updateOne({ _id: ObjectId(gid) },
+        { $pull: { reviews: addReview } });
+
+    const updatedInfo = await actionCollection.updateOne({ _id: ObjectId(gid) },
+        { $set: updateAction });
+    return true;
+}
 module.exports = {
     getAllActions,
     getActionById,
-    addAction
+    addAction,
+    addReviewIds,
+    removeReviewIds
 }

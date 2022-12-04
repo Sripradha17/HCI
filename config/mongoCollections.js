@@ -12,7 +12,6 @@ const getCollectionFn = (collection) => {
 };
 
 module.exports = {
-    hotels: getCollectionFn('hotels'),
     puzzle: getCollectionFn('puzzle'),
     action: getCollectionFn('action'),
     racing: getCollectionFn('racing'),

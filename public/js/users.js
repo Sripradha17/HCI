@@ -100,7 +100,7 @@ $('#Signup-form').validate({
         "username": {
             required: "Please, enter a username",
             regx: "username not valid"
-        }, // console.log("Hello");
+        }, 
         "password": {
             required: "Please, enter a paasword",
             regx: "Password must be 8 to 15 characters which contain at least one lowercase letter one uppercase letter, one numeric digit, and one special character"

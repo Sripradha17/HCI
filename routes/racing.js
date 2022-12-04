@@ -27,7 +27,6 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     let id = xss(req.params.id.trim());
-    console.log(id)
     if (id === '') {
         return res.render('errors/404', {
             authenticated: req.session.user ? true : false,
@@ -38,14 +37,15 @@ router.get('/:id', async (req, res) => {
     }
     try {
         let racing = await racingData.getRacingById(id);
-        console.log(racing)
-        if (racing) {            
+        racing.showRating = racing.rating > 0 ? true : false;
+        racing.reviews_list = await reviewData.getAllReviewsBygameId(racing._id.toString());
+        if (racing) {
             return res.render('templates/racing/racingDetail', {
                 authenticated: req.session.user ? true : false,
                 user: req.session.user,
                 title: 'Racing',
                 racing: racing,
-
+                partial: 'racing-detail-script'
             });
         }
         else {
@@ -61,6 +61,44 @@ router.get('/:id', async (req, res) => {
             authenticated: req.session.user ? true : false,
             user: req.session.user,
             title: '404 Page not found',
+        });
+    }
+
+});
+
+router.get('/racingreviews/:id', async (req, res) => {
+    let id = xss(req.params.id.trim());
+    let racing = undefined;
+    if (id === '') {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...racing
+        });
+
+    }
+    try {
+        racing = await racingData.getRacingById(id);
+        if (racing) {
+            racing.showRating = racing.rating > 0 ? true : false;
+            racing.reviews_list = await reviewData.getAllReviewsBygameId(racing._id.toString());
+            //let review = await racingData.getAllReviewsByRacingId(racing._id);
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...racing
+            });
+        }
+        else {
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...racing
+            });
+
+        }
+    }
+    catch (e) {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...racing
         });
     }
 

@@ -4,32 +4,40 @@ const data = require('../data');
 const bcrypt = require('bcrypt');
 const xss = require('xss')
 const userData = data.users;
-const hotelData = data.hotels;
+const puzzleData = data.puzzle;
+const actionData = data.action;
+const racingData = data.racing;
+const strategyData = data.strategy;
+const sportsData = data.sports;
 const reviewData = data.reviews;
 const validation = require('../data/validation');
 const { parse } = require('handlebars');
 
 
 router.get('/', async (req, res) => {
-    let hotels = await hotelData.getAllActiveHotels();
-    hotels = hotels.slice(0, 3);
-    hotels.forEach(async (hotel) => {
-        hotel.showRating = hotel.rating > 0 ? true : false;
-        hotel.ratingclass = hotel.rating >= 3.5 ? "success" : hotel.rating > 2 ? "warning" : "danger";
-    });
+    let puzzle = await puzzleData.getAllPuzzles();
+    let action = await actionData.getAllActions();
+    let racing = await racingData.getAllRacings();
+    let sports = await sportsData.getAllSportss();
+    let strategy = await strategyData.getAllStrategys();
+
     res.render('templates/users/index',
         {
             title: 'Game Over',
             authenticated: req.session.user ? true : false,
             user: req.session.user,
-            hotels: hotels
+            puzzle: puzzle,
+            action: action,
+            racing: racing,
+            sports: sports,
+            strategy: strategy
         });
 });
 
 // Get login page
 router.get('/login', async (req, res) => {
     if (req.session.user) {
-        res.redirect('/hotels');
+        res.redirect('/');
     } else {
         res.render('templates/users/login', {
             title: 'Log In',
@@ -95,18 +103,15 @@ router.get("/Signup", async (req, res) => {
         });
 
     } else {
-        return res.redirect('/hotels');
+        return res.redirect('/');
     }
 });
 
 router.post("/Signup", async (req, res) => {
     const firstname = xss(req.body.firstname.trim());
     const lastname = xss(req.body.lastname.trim());
-    const phoneNumber = xss(req.body.phoneNumber.trim());
     const email = xss(req.body.email.trim());
-    const role = xss(req.body.role.trim());
     const username = xss(req.body.username.trim());
-    const age = xss(req.body.age.trim());
     const password = xss(req.body.password.trim());
     let data = {};
 
@@ -121,21 +126,7 @@ router.post("/Signup", async (req, res) => {
         return res.json(data);
     }
     try {
-        await validation.checkphoneNumber(phoneNumber);
-    } catch (error) {
-        data.success = false;
-        data.msg = error;
-        return res.json(data);
-    }
-    try {
         await validation.checkemail(email);
-    } catch (error) {
-        data.success = false;
-        data.msg = error;
-        return res.json(data);
-    }
-    try {
-        await validation.checkage(age);
     } catch (error) {
         data.success = false;
         data.msg = error;
@@ -156,19 +147,9 @@ router.post("/Signup", async (req, res) => {
         return res.json(data);
     }
 
-    let status = 2;
-    if (role == 2 || role == 3) {
-        if (role == 2) {
-            status = 1;
-        }
-    }
-    else {
-        throw "Something going wrong";
-    }
 
     try {
-        let { userInserted } = await userData.createUser(firstname, lastname, phoneNumber, email, role, status, username, age, password);
-        //console.log("reached router");
+        let { userInserted } = await userData.createUser(firstname, lastname, email, username, password);
         if (userInserted) {
             data.success = true;
             data.msg = "successfully Registered";
@@ -211,9 +192,7 @@ router.get("/profile", async (req, res) => {
 router.post("/profile", async (req, res) => {
     const firstname = xss(req.body.firstname.trim());
     const lastname = xss(req.body.lastname.trim());
-    const phoneNumber = xss(req.body.phoneNumber.trim());
     const email = xss(req.body.email.trim());
-    const age = xss(req.body.age.trim());
     let data = {};
     if (!validation.validString(firstname)) {
         data.success = false;
@@ -226,27 +205,12 @@ router.post("/profile", async (req, res) => {
         return res.json(data);
     }
     try {
-        await validation.checkphoneNumber(phoneNumber);
-    } catch (error) {
-        data.success = false;
-        data.msg = error;
-        return res.json(data);
-    }
-    try {
         await validation.checkemail(email);
     } catch (error) {
         data.success = false;
         data.msg = error;
         return res.json(data);
     }
-    try {
-        await validation.checkage(age);
-    } catch (error) {
-        data.success = false;
-        data.msg = error;
-        return res.json(data);
-    }
-
     if (!req.session.user) {
         data.success = false;
         data.msg = "Please login your account.";
@@ -255,7 +219,7 @@ router.post("/profile", async (req, res) => {
     }
     try {
 
-        let  userUpdated  = await userData.UpdateProfile(req.session.user._id, firstname, lastname, phoneNumber, email, age);
+        let userUpdated = await userData.UpdateProfile(req.session.user._id, firstname, lastname, email);
         if (userUpdated) {
             data.success = true;
             data.msg = "Successfully updated your Profile";
@@ -268,6 +232,7 @@ router.post("/profile", async (req, res) => {
     }
 
 });
+
 router.get("/myReview", async (req, res) => {
     if (!req.session.user) {
         return res.redirect("/login");
@@ -286,25 +251,7 @@ router.get("/myReview", async (req, res) => {
         user: req.session.user
     });
 });
-router.get("/favHotel", async (req, res) => {
-    if (!req.session.user) {
-        return res.redirect("/login");
-    }
-    let user = await userData.getUserById(req.session.user._id);
-    if (user === null) {
-        return res.render('error/404');
-    }
-    let hotels = await hotelData.getAllActiveHotels();
-    hotels = hotels.filter(d => user.favoriteHotels.includes(d._id));
-    return res.render('templates/users/myFavHotel', {
-        layout: 'main',
-        title: "My Reviews",
-        partial: 'my-review-script',
-        hotels: hotels,
-        authenticated: req.session.user ? true : false,
-        user: req.session.user
-    });
-});
+
 
 router.get("/logout", async (req, res) => {
     if (!req.session.user) {
@@ -314,4 +261,5 @@ router.get("/logout", async (req, res) => {
     return res.redirect("/");
 
 });
+
 module.exports = router;

@@ -27,7 +27,6 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     let id = xss(req.params.id.trim());
-    console.log(id)
     if (id === '') {
         return res.render('errors/404', {
             authenticated: req.session.user ? true : false,
@@ -37,13 +36,15 @@ router.get('/:id', async (req, res) => {
     }
     try {
         let sports = await sportsData.getSportsById(id);
-        console.log(sports)
-        if (sports) {            
+        sports.showRating = sports.rating > 0 ? true : false;
+        sports.reviews_list = await reviewData.getAllReviewsBygameId(sports._id.toString());
+        if (sports) {
             return res.render('templates/sports/sportsDetail', {
                 authenticated: req.session.user ? true : false,
                 user: req.session.user,
                 title: 'Sports',
                 sports: sports,
+                partial: 'sports-detail-script'
             });
         }
         else {
@@ -61,6 +62,44 @@ router.get('/:id', async (req, res) => {
             title: '404 Page not found',
         });
     }
+});
+
+router.get('/sportsreviews/:id', async (req, res) => {
+    let id = xss(req.params.id.trim());
+    let sports = undefined;
+    if (id === '') {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...sports
+        });
+
+    }
+    try {
+        sports = await sportsData.getSportsById(id);
+        if (sports) {
+            sports.showRating = sports.rating > 0 ? true : false;
+            sports.reviews_list = await reviewData.getAllReviewsBygameId(sports._id.toString());
+            //let review = await sportsData.getAllReviewsBySportsId(sports._id);
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...sports
+            });
+        }
+        else {
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...sports
+            });
+
+        }
+    }
+    catch (e) {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...sports
+        });
+    }
+
 });
 
 module.exports = router;

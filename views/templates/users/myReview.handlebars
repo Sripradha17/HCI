@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card-review">
     <div class="card-header">
         <h2>My Review List</h2>
     </div>
@@ -17,7 +17,7 @@
             <table class="table table-borderd">
                 <thead>
                     <tr>
-                        <th>Hotel Name</th>
+                        <th>Game name</th>
                         <th>Review Title</th>
                         <th>Description</th>
                         <th>Rating</th>
@@ -28,8 +28,22 @@
                 </thead>
                 <tbody>
                     {{#each reviews}}
-                    <tr>
-                        <td>{{this.hotelName}}</td>
+                    <tr>   
+                        {{#if puzzleName}} 
+                        <td>{{this.puzzleName}}</td>
+                        {{/if}}
+                        {{#if actionName}} 
+                        <td>{{this.actionName}}</td>
+                        {{/if}}
+                        {{#if racingName}} 
+                        <td>{{this.racingName}}</td>
+                        {{/if}}
+                        {{#if sportsName}} 
+                        <td>{{this.sportsName}}</td>
+                        {{/if}}
+                        {{#if strategyName}} 
+                        <td>{{this.strategyName}}</td>
+                        {{/if}}
                         <td>{{this.Title}}</td>
                         <td>{{this.description}}</td>
                         <td> <span class="star-rating ratings">

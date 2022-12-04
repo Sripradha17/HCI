@@ -28,7 +28,6 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
 
     let id = xss(req.params.id.trim());
-    console.log(id)
     if (id === '') {
         return res.render('errors/404', {
             authenticated: req.session.user ? true : false,
@@ -39,17 +38,18 @@ router.get('/:id', async (req, res) => {
     }
     try {
         let strategy = await strategyData.getStrategyById(id);
-        console.log(strategy)
+        strategy.showRating = strategy.rating > 0 ? true : false;
+        strategy.reviews_list = await reviewData.getAllReviewsBygameId(strategy._id.toString());
         if (strategy) {
             // strategy.showRating = strategy.rating > 0 ? true : false;
             // strategy.reviews_list = await reviewData.getAllReviewsByStrategyId(strategy._id);
-            
+
             return res.render('templates/strategy/strategyDetail', {
                 authenticated: req.session.user ? true : false,
                 user: req.session.user,
                 title: 'Strategy',
                 strategy: strategy,
-
+                partial: 'strategy-detail-script'
             });
         }
         else {
@@ -70,6 +70,44 @@ router.get('/:id', async (req, res) => {
             authenticated: req.session.user ? true : false,
             user: req.session.user,
             title: '404 Page not found',
+        });
+    }
+
+});
+
+router.get('/strategyreviews/:id', async (req, res) => {
+    let id = xss(req.params.id.trim());
+    let strategy = undefined;
+    if (id === '') {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...strategy
+        });
+
+    }
+    try {
+        strategy = await strategyData.getStrategyById(id);
+        if (strategy) {
+            strategy.showRating = strategy.rating > 0 ? true : false;
+            strategy.reviews_list = await reviewData.getAllReviewsBygameId(strategy._id.toString());
+            //let review = await strategyData.getAllReviewsByStrategyId(strategy._id);
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...strategy
+            });
+        }
+        else {
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...strategy
+            });
+
+        }
+    }
+    catch (e) {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...strategy
         });
     }
 

@@ -15,6 +15,7 @@ async function getAllUsers() {
 
     return allUsers;
 }
+
 async function getUserById(userId) {
     //validation remaining
 
@@ -25,45 +26,7 @@ async function getUserById(userId) {
 
     return user;
 }
-async function approveUser(userId) {
-    //validation remaining
 
-    let user = (await this.getUserById(userId));
-    if (user === null) throw 'No user found with that id.';
-    let updateUser = {
-        userStatus: 2
-    };
-    const userCollection = await users();
-    const updatedInfo = await userCollection.updateOne({ _id: ObjectId(userId) }, { $set: updateUser });
-    if (updatedInfo.modifiedCount === 0) throw 'Could not approved user successfully.';
-    return true;
-}
-async function blockUser(userId) {
-    //validation remaining
-
-    let user = (await this.getUserById(userId));
-    if (user === null) throw 'No user found with that id.';
-    let updateUser = {
-        userStatus: 3
-    };
-    const userCollection = await users();
-    const updatedInfo = await userCollection.updateOne({ _id: ObjectId(userId) }, { $set: updateUser });
-    if (updatedInfo.modifiedCount === 0) throw 'Could not blocked user successfully.';
-    return true;
-}
-async function activeUser(userId) {
-    //validation remaining
-
-    let user = (await this.getUserById(userId));
-    if (user === null) throw 'No user found with that id.';
-    let updateUser = {
-        userStatus: 2
-    };
-    const userCollection = await users();
-    const updatedInfo = await userCollection.updateOne({ _id: ObjectId(userId) }, { $set: updateUser });
-    if (updatedInfo.modifiedCount === 0) throw 'Could not active user successfully.';
-    return true;
-}
 async function checkUser(username, password) {
     try {
         username = username.toLowerCase().trim();
@@ -76,15 +39,7 @@ async function checkUser(username, password) {
         }
         let hashedPassword = user.hashedPassword;
         if (user && await bcrypt.compare(password, hashedPassword)) {
-            if (user.userStatus == 2) {
-                return { authenticated: true, user: user };
-            }
-            else if (user.userStatus == 1) {
-                throw "Your account verification is pending. Please contact to administrator for activation."
-            }
-            else if (user.userStatus == 3) {
-                throw "Your account is blocked. Please contact to administrator for activation."
-            }
+            return { authenticated: true, user: user };
         }
         else {
             throw "username or password is incorrect";
@@ -93,6 +48,7 @@ async function checkUser(username, password) {
         throw error;
     }
 }
+
 async function findUserByUsername(username) {
     try {
 
@@ -146,7 +102,8 @@ async function checkPassword(password) {
     }
     return true;
 }
-async function createUser(firstname, lastname, phoneNumber, email, role, status, username, age, password) {
+
+async function createUser(firstname, lastname, email, username, password) {
     if (!validation.validString(firstname)) {
 
         throw "First name not valid string";
@@ -155,19 +112,9 @@ async function createUser(firstname, lastname, phoneNumber, email, role, status,
     if (!validation.validString(lastname)) {
         throw "Last Name not valid string";
     }
-    try {
-        await validation.checkphoneNumber(phoneNumber);
-    } catch (error) {
-        throw error;
-    }
 
     try {
         await validation.checkemail(email);
-    } catch (error) {
-        throw error;
-    }
-    try {
-        await validation.checkage(age);
     } catch (error) {
         throw error;
     }
@@ -198,14 +145,9 @@ async function createUser(firstname, lastname, phoneNumber, email, role, status,
     let newUser = {
         firstName: firstname,
         lastName: lastname,
-        phoneNumber: phoneNumber,
         userName: username,
         emailId: email,
-        roleId: parseInt(role),
-        userStatus: parseInt(status),
-        age: parseInt(age),
         hashedPassword: hash,
-        favoriteHotels: [],
         reviews: []
     }
 
@@ -215,45 +157,8 @@ async function createUser(firstname, lastname, phoneNumber, email, role, status,
     }
     return { userInserted: true };
 }
-async function checkfavHotelById(hotelId, userId) {
-    //validation remaining
 
-    let user = (await this.getUserById(userId));
-    if (user === null) throw 'No user found with that id.';
-    if (user.favoriteHotels.includes(hotelId)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-async function AddRemovefavourite(hotelId, userId) {
-    //validation remaining
-
-    let user = (await this.getUserById(userId));
-    if (user === null) throw 'No user found with that id.';
-    if (user.favoriteHotels.includes(hotelId)) {
-        let updateUser = {
-            favoriteHotels: hotelId
-        };
-        const userCollection = await users();
-        const updatedInfo = await userCollection.updateOne({ _id: ObjectId(userId) }, { $pull: updateUser });
-        if (updatedInfo.modifiedCount === 0) throw 'Could not  remove favourite hotel successfully.';
-        return true;
-
-    }
-    else {
-        let updateUser = {
-            favoriteHotels: hotelId
-        };
-        const userCollection = await users();
-        const updatedInfo = await userCollection.updateOne({ _id: ObjectId(userId) }, { $push: updateUser });
-        if (updatedInfo.modifiedCount === 0) throw 'Could not add favourite hotel successfully.';
-        return true;
-
-    }
-}
-async function UpdateProfile(userId, firstname, lastname, phoneNumber, email, age) {
+async function UpdateProfile(userId, firstname, lastname, email) {
     if (!validation.validString(firstname)) {
         data.success = false;
         data.msg = "First name not valid string";
@@ -264,9 +169,7 @@ async function UpdateProfile(userId, firstname, lastname, phoneNumber, email, ag
         data.msg = "Last Name not valid string";
         return res.json(data);
     }
-    await validation.checkphoneNumber(phoneNumber);
     await validation.checkemail(email);
-    await validation.checkage(age);
 
     try {
         let user = (await this.getUserById(userId));
@@ -275,9 +178,7 @@ async function UpdateProfile(userId, firstname, lastname, phoneNumber, email, ag
         let updateUser = {
             firstName: firstname,
             lastName: lastname,
-            phoneNumber: phoneNumber,
-            emailId: email,
-            age: age,
+            emailId: email
         }
 
         const userCollection = await users();
@@ -292,15 +193,10 @@ async function UpdateProfile(userId, firstname, lastname, phoneNumber, email, ag
 }
 module.exports = {
     getAllUsers,
-    approveUser,
     getUserById,
-    blockUser,
-    activeUser,
-    checkUser,
     checkUserName,
     checkPassword,
     createUser,
-    checkfavHotelById,
-    AddRemovefavourite,
+    checkUser,
     UpdateProfile
 }

@@ -27,7 +27,6 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     let id = xss(req.params.id.trim());
-    console.log(id)
     if (id === '') {
         return res.render('errors/404', {
             authenticated: req.session.user ? true : false,
@@ -38,14 +37,15 @@ router.get('/:id', async (req, res) => {
     }
     try {
         let action = await actionData.getActionById(id);
-        console.log(action)
-        if (action) {            
+        action.showRating = action.rating > 0 ? true : false;
+        action.reviews_list = await reviewData.getAllReviewsBygameId(action._id.toString());
+        if (action) {
             return res.render('templates/action/actionDetail', {
                 authenticated: req.session.user ? true : false,
                 user: req.session.user,
                 title: 'Action',
                 action: action,
-
+                partial: 'action-detail-script'
             });
         }
         else {
@@ -63,6 +63,44 @@ router.get('/:id', async (req, res) => {
             title: '404 Page not found',
         });
     }
+});
+
+router.get('/actionreviews/:id', async (req, res) => {
+    let id = xss(req.params.id.trim());
+    let action = undefined;
+    if (id === '') {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...action
+        });
+
+    }
+    try {
+        action = await actionData.getActionById(id);
+        if (action) {
+            action.showRating = action.rating > 0 ? true : false;
+            action.reviews_list = await reviewData.getAllReviewsBygameId(action._id.toString());
+            //let review = await actionData.getAllReviewsByActionId(action._id);
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...action
+            });
+        }
+        else {
+            return res.render('templates/partials/review_list', {
+                layout: null,
+                ...action
+            });
+
+        }
+    }
+    catch (e) {
+        return res.render('templates/partials/review_list', {
+            layout: null,
+            ...action
+        });
+    }
+
 });
 
 module.exports = router;

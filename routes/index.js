@@ -1,5 +1,3 @@
-const adminRoutes = require('./admin');
-const hotelRoutes = require('./hotels');
 const userRoutes = require('./users');
 const reviewRoutes = require('./reviews');
 const puzzleRoutes = require('./puzzle');
@@ -10,8 +8,6 @@ const strategyRoutes = require('./strategy');
 
 
 const constructorMethod = (app) => {
-    app.use('/admin', adminRoutes);
-    app.use('/hotels', hotelRoutes);
     app.use('/reviews', reviewRoutes);
     app.use('/', userRoutes);
     app.use('/puzzle', puzzleRoutes);

@@ -4,200 +4,156 @@
     </section>
 
     <section class="iframe-section">
-        <iframe width="100%" height="500" src={{action.link}} frameborder="0" allowfullscreen ng-show="showvideo">
+        <iframe width="100%" height="500" src={{action.link}} frameborder="0" allowfullscreen
+            ng-show="showvideo">
         </iframe>
     </section>
 
     <section class="about-section">
-        <div class="row">
-            <div class="column">
-                <img class="imageOne" src="{{action.imageOne}}" alt="image-one">
-            </div>
-
-            <div class="column" style="padding-right: 55px;">
-                <div class="card-detail">
-                    <div class="card_content-detail">
-                        <h2 class="card_title-detail">About the game</h2><br>
-                        <p class="card_text-detail">{{action.about}}</p>
-                        <button class="btn-detail card_btn-detail" id="mybtnOne">Read
-                            More</button>
-                    </div>
-                </div>
+        <div class="card-about" style="background-image: url({{action.imageOne}});">
+            <div class="inner">
+                <h2 class="title">About the Game</h2>
+                <time class="subtitle">{{action.about}}<time>
             </div>
         </div>
     </section>
-
-    <div id="myModalOne" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span><br>
-            <h2>About the game</h2><br>
-            <p>{{action.about}}</p>
-        </div>
-
-    </div>
-
-    <script>
-        var modalOne = document.getElementById("myModalOne");
-
-        var btnOne = document.getElementById("mybtnOne");
-
-        var spanOne = document.getElementsByClassName("close")[0];
-
-        btnOne.onclick = function () {
-            modalOne.style.display = "block";
-        }
-
-        spanOne.onclick = function () {
-            modalOne.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modalOne) {
-                modalOne.style.display = "none";
-            }
-        }
-    </script>
 
     <section class="instruction-section">
-        <div class="row">
-            <div class="column">
-                <div class="card-detail">
-                    <div class="card_content-detail">
-                        <h2 class="card_title-detail">How to play the game</h2><br>
-                        {{#each action.instructionSet}}                        
-                        <p class="card_text-detail">{{this}}</p>
-                        {{/each}}
-                        <button class="btn-detail card_btn-detail" id="mybtnTwo">Read
-                            More</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="column" style="padding-right: 55px;">
-                <img class="imageOne" src="{{action.imageTwo}}" alt="image-one">
+        <div class="card-instruction" style="background-image: url({{action.imageTwo}});">
+            <div class="inner-instruction" style="align-items: unset;">
+                <h2 class="title">How to play</h2>
+                {{#each action.instruction}}
+                <li class="subtitle" style="text-align: left;">{{this}}</li><br>
+                {{/each}}
             </div>
         </div>
     </section>
-
-    <div id="myModalTwo" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="closeTwo">&times;</span><br>
-
-            <h2>How to play the game</h2><br>
-            <ul>
-                {{#each action.instruction}}
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
-
-            <h6>Refer to the link for more information:</h6>
-            <a href={{action.refer}} target="_blank">{{action.refer}}</a>
-        </div>
-
-    </div>
-
-    <script>
-        var modalTwo = document.getElementById("myModalTwo");
-
-        var btnTwo = document.getElementById("mybtnTwo");
-
-        var spanTwo = document.getElementsByClassName("closeTwo")[0];
-
-        btnTwo.onclick = function () {
-            modalTwo.style.display = "block";
-        }
-
-        spanTwo.onclick = function () {
-            modalTwo.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modalTwo) {
-                modalTwo.style.display = "none";
-            }
-        }
-    </script>
 
     <section class="cheatcCode-section">
-        <div class="row">
-            <div class="column">
-                <img class="imageOne" src="{{action.imageThree}}" alt="image-one">
-            </div>
-
-            <div class="column" style="padding-right: 55px;">
-                <div class="card-detail">
-                    <div class="card_content-detail">
-                        <h2 class="card_title-detail">Cheat code</h2><br>
-                        {{#each action.cheatCodesSet}}
-                        <p class="card_text-detail">{{this}}</p>
-                        {{/each}}
-                        <button class="btn-detail card_btn-detail" id="mybtnThree">Read
-                            More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="myModalThree" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="closeThree">&times;</span><br>
-
-            <h2>Cheat codes</h2><br>
-            <ul>
-                {{#each action.cheatCodes}}
-                <li>{{this}}</li>
+        <div class="card-cheat" style="background-image: url({{action.imageThree}});">
+            <div class="inner-instruction">
+                <h2 class="title">Cheats</h2>
+                {{#each action.cheatCodesSet}}
+                <li class="subtitle" style="text-align: left;">{{this}}</li><br>
                 {{/each}}
-            </ul>
+            </div>
         </div>
 
-    </div>
-
-    <script>
-        var modalThree = document.getElementById("myModalThree");
-
-        var btnThree = document.getElementById("mybtnThree");
-
-        var spanThree = document.getElementsByClassName("closeThree")[0];
-
-        btnThree.onclick = function () {
-            modalThree.style.display = "block";
-        }
-
-        spanThree.onclick = function () {
-            modalThree.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modalThree) {
-                modalThree.style.display = "none";
-            }
-        }
-    </script>
+    </section>
 
     <section class="url-section">
-        <h2>Where can I find the game?</h2>
-        {{#each action.url}}
-        <a href={{this}} target="_blank" style="color: #267fff;">{{this}}</a><br>
-        {{/each}}
-    </section>
-
-
-    <section class="img-section">
-        <div class="row">
-            <div class="column">
-                <img class="imageOne" src="{{action.imageFour}}" alt="image-one">
-            </div>
-
-            <div class="column">
-                <img class="imageOne" src="{{action.imageFive}}" alt="image-one">
+        <div class="card-url" style="background-image: url({{action.imageThree}});">
+            <div class="inner-instruction">
+                <h2 class="title">Where can a find the game</h2>
+                <li class="subtitle" style="text-align: left;margin-left:250px">
+                    {{action.urlNameOne}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{action.urlOne}}
+                        class="fa fa-external-link" target="_blank"></a>
+                </li>
+                <li class="subtitle" style="text-align: left;margin-left:250px">
+                    {{action.urlNameTwo}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{action.urlTwo}}
+                        class="fa fa-external-link"></a>
+                </li>
+                <li class="subtitle" style="text-align: left;margin-left:250px">
+                    {{action.urlNameThree}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{action.urlThree}}
+                        class="fa fa-external-link"></a>
+                </li>
+                <li class="subtitle" style="text-align: left;margin-left:250px">
+                    {{action.urlNameFour}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{action.urlFour}}
+                        class="fa fa-external-link"></a>
+                </li>
+                <li class="subtitle" style="text-align: left;margin-left:250px">{{action.urlNameFive
+                    }}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{action.urlFive}}
+                        class="fa fa-external-link"></a>
+                </li>
+                <li class="subtitle" style="text-align: left;margin-left:250px">
+                    {{action.urlNameSix}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{action.urlSix}}
+                        class="fa fa-external-link"></a>
+                </li>
+                <li class="subtitle" style="text-align: left;margin-left:250px">
+                    {{action.urlNameSeven}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{action.urlSeven}}
+                        class="fa fa-external-link"></a>
+                </li>
+                <li class="subtitle" style="text-align: left;margin-left:250px">
+                    {{action.urlNameEight}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{taction.urlOnehis}}
+                        class="fa fa-external-link"></a>
+                </li>
             </div>
         </div>
+
     </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 action-detailed-ratings-and-reviews">
+                <form id="addReview-form" class="border-top pt-5 addReview-form" method="post"
+                    action="javascript:;">
+                    <h3>Add new review</h3>
+                    <div class="form-group">
+                        <label class="sr-only" for="Title">Title</label>
+                        <input class="form-control rounded-0" type="text" id="Title" name="Title"
+                            placeholder="Enter Title">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="description">Description </label>
+                        <textarea rows="3" name="description" class="form-control" id="description"
+                            placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <span class="user-rating">
+                            <input type="radio" name="rating" value="5"><span class="star"></span>
+                            <input type="radio" name="rating" value="4"><span class="star"></span>
+                            <input type="radio" name="rating" value="3"><span class="star"></span>
+                            <input type="radio" name="rating" value="2"><span class="star"></span>
+                            <input type="radio" name="rating" value="1"><span class="star"></span>
+                        </span>
+
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Add Review</button>
+                </form>
+
+                <h3 class="mb-1 review-text">All Ratings and Reviews</h3>
+
+                <div id="review_list" class="review-list">
+                    {{#each action.reviews_list}}
+                    <hr>
+                    <div class="reviews-members pt-4 pb-4">
+                        <div class="media">
+                            <div class="media-body">
+                                <div class="reviews-members-header">
+                                    <span class="star-rating float-right ratings">
+                                        {{this.rating}}
+
+                                    </span>
+                                    <h6 class="mb-1">{{this.user_name}}</h6>
+                                    <p class="text-gray">{{this.dateOfReview}}</p>
+                                </div>
+                                <div class="reviews-members-body">
+                                    <p><b>{{this.Title}}</b></p>
+                                    <p>{{this.description}}</p>
+                                </div>
+                                <div class="reviews-members-footer">
+                                    <a class="total-like" href="#"><i class="fa fa-thumbs-up"></i>
+                                        {{this.likes}}</a> <a class="total-like" href="#"><i
+                                            class="fa fa-thumbs-down"></i>
+                                        {{this.dislikes}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 </div>
