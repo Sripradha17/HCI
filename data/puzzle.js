@@ -68,7 +68,7 @@ async function getPuzzleById(puzzleId) {
     puzzleOne.urlNameEight = puzzleOne.url[14];
     puzzleOne.urlEight = puzzleOne.url[15]
 
-    return puzzleOne
+    return puzzleOne;
 
 }
 
@@ -101,6 +101,8 @@ async function addPuzzle(name, about, instruction, refer, cheatCodes, url, image
 
 async function addReviewIds(gid, reviewId, avg) {
     let puzzle = (await this.getPuzzleById(gid));
+    console.log("hi")
+    console.log(puzzle)
     if (puzzle === null) throw 'No user found with that id.';
     let addReview = {
         reviewId
@@ -113,10 +115,10 @@ async function addReviewIds(gid, reviewId, avg) {
     const updatedReview = await puzzleCollection.updateOne({ _id: ObjectId(gid) },
         { $push: { reviews: addReview } });
 
-    if (updatedReview.modifiedCount === 0) throw 'Could not added review.';
+    if (updatedReview.modifiedCount === 0) throw 'Could not add review.';
     const updatedInfo = await puzzleCollection.updateOne({ _id: ObjectId(gid) },
         { $set: updatePuzzle });
-    if (updatedInfo.modifiedCount === 0) throw 'Could not added review.';
+    if (updatedInfo.modifiedCount === 0) throw 'Could not add review.';
     return true;
 }
 

@@ -112,10 +112,10 @@ async function addReviewIds(gid, reviewId, avg) {
     const updatedReview = await racingCollection.updateOne({ _id: ObjectId(gid) },
         { $push: { reviews: addReview } });
 
-    if (updatedReview.modifiedCount === 0) throw 'Could not added review.';
+    if (updatedReview.modifiedCount === 0) throw 'Could not add review.';
     const updatedInfo = await racingCollection.updateOne({ _id: ObjectId(gid) },
         { $set: updateRacing });
-    if (updatedInfo.modifiedCount === 0) throw 'Could not added review.';
+    if (updatedInfo.modifiedCount === 0) throw 'Could not add review.';
     return true;
 }
 
