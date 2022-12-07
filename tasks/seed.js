@@ -65,10 +65,10 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/TheTalosPrinciple.gif",
-            "../../../public/images/TheTalosPrinciple.gif",
-            "../../../public/images/TheTalosPrinciple.gif",
-            "../../../public/images/TheTalosPrinciple.gif",
-            "../../../public/images/TheTalosPrinciple.gif"
+            "../../../public/images/TheTalosPrinciple2.gif",
+            "../../../public/images/TheTalosPrinciple6.gif",
+            "../../../public/images/TheTalosPrinciple3.gif",
+            "../../../public/images/TheTalosPrinciple4.gif"
         ],
     /*youtube link*/  "https://www.youtube.com/embed/Vu9QFBWb7WQ"
     );
@@ -108,10 +108,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/tetris.jpg",
-            "../../../public/images/tetris.jpg",
-            "../../../public/images/tetris.jpg",
-            "../../../public/images/tetris.jpg",
-            "../../../public/images/tetris.jpg"
+            "../../../public/images/tetris.gif",
+            "../../../public/images/tetris1.gif",
+            "../../../public/images/tetris2.gif",
+            "../../../public/images/tetris3.gif",
+            "../../../public/images/tetris4.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/QQ5U-rN7Veg");
     datas = await Puzzle.getAllPuzzles();
@@ -151,10 +152,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Portals2.jpg",
-            "../../../public/images/Portals2.jpg",
-            "../../../public/images/Portals2.jpg",
-            "../../../public/images/Portals2.jpg",
-            "../../../public/images/Portals2.jpg"
+            "../../../public/images/Portals21.gif",
+            "../../../public/images/Portals22.gif",
+            "../../../public/images/Portals23.gif",
+            "../../../public/images/Portals24.gif",
+            "../../../public/images/Portals25.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/A0K5EXfgJnk"
     );
@@ -192,10 +194,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/BabaIsYou.jpg",
-            "../../../public/images/BabaIsYou.jpg",
-            "../../../public/images/BabaIsYou.jpg",
-            "../../../public/images/BabaIsYou.jpg",
-            "../../../public/images/BabaIsYou.jpg"
+            "../../../public/images/BabaIsYou5.gif",
+            "../../../public/images/BabaIsYou.gif",
+            "../../../public/images/BabaIsYou1.gif",
+            "../../../public/images/BabaIsYou3.gif",
+            "../../../public/images/BabaIsYou4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/z3_yA4HTJfs"
     );
@@ -229,10 +232,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Fez.jpg",
-            "../../../public/images/Fez.jpg",
-            "../../../public/images/Fez.jpg",
-            "../../../public/images/Fez.jpg",
-            "../../../public/images/Fez.jpg"
+            "../../../public/images/Fez5.gif",
+            "../../../public/images/Fez1.gif",
+            "../../../public/images/Fez2.gif",
+            "../../../public/images/Fez3.gif",
+            "../../../public/images/Fez4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/lrEsNI0aCPk"
     );
@@ -275,10 +279,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Bejeweled3.jpg",
-            "../../../public/images/Bejeweled3.jpg",
-            "../../../public/images/Bejeweled3.jpg",
-            "../../../public/images/Bejeweled3.jpg",
-            "../../../public/images/Bejeweled3.jpg"
+            "../../../public/images/Bejeweled32.gif",
+            "../../../public/images/Bejeweled3.gif",
+            "../../../public/images/Bejeweled31.gif",
+            "../../../public/images/Bejeweled34.gif",
+            "../../../public/images/Bejeweled33.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/gVaADDW5TXk"
     );
@@ -316,10 +321,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/TombRaider.jpg",
-            "../../../public/images/TombRaider.jpg",
-            "../../../public/images/TombRaider.jpg",
-            "../../../public/images/TombRaider.jpg",
-            "../../../public/images/TombRaider.jpg"
+            "../../../public/images/TombRaider4.gif",
+            "../../../public/images/TombRaider1.gif",
+            "../../../public/images/TombRaider.gif",
+            "../../../public/images/TombRaider2.gif",
+            "../../../public/images/TombRaider3.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/nFBrgeSjj-0"
     );
@@ -355,10 +361,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Batman.gif",
-            "../../../public/images/Batman.gif",
-            "../../../public/images/Batman.gif",
-            "../../../public/images/Batman.gif",
-            "../../../public/images/Batman.gif"
+            "../../../public/images/Batman5.gif",
+            "../../../public/images/Batman2.gif",
+            "../../../public/images/Batman4.gif",
+            "../../../public/images/Batman3.gif",
+            "../../../public/images/Batman1.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/T8bu2Y_cZb8"
     );
@@ -393,10 +400,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Guardians.gif",
-            "../../../public/images/Guardians.gif",
-            "../../../public/images/Guardians.gif",
-            "../../../public/images/Guardians.gif",
-            "../../../public/images/Guardians.gif"
+            "../../../public/images/Guardians5.gif",
+            "../../../public/images/Guardians1.gif",
+            "../../../public/images/Guardians2.gif",
+            "../../../public/images/Guardians3.gif",
+            "../../../public/images/Guardians4.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/oki56MQfiHI"
     );
@@ -435,10 +443,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Assassins_Creed_Valhalla.gif",
-            "../../../public/images/Assassins_Creed_Valhalla.gif",
-            "../../../public/images/Assassins_Creed_Valhalla.gif",
-            "../../../public/images/Assassins_Creed_Valhalla.gif",
-            "../../../public/images/Assassins_Creed_Valhalla.gif"
+            "../../../public/images/Assassins_Creed_Valhalla5.gif",
+            "../../../public/images/Assassins_Creed_Valhalla1.gif",
+            "../../../public/images/Assassins_Creed_Valhalla3.gif",
+            "../../../public/images/Assassins_Creed_Valhalla2.gif",
+            "../../../public/images/Assassins_Creed_Valhalla4.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/ssrNcwxALS4"
     );
@@ -491,10 +500,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/ResidentEvil4.gif",
-            "../../../public/images/ResidentEvil4.gif",
-            "../../../public/images/ResidentEvil4.gif",
-            "../../../public/images/ResidentEvil4.gif",
-            "../../../public/images/ResidentEvil4.gif"
+            "../../../public/images/ResidentEvil5.gif",
+            "../../../public/images/ResidentEvil41.gif",
+            "../../../public/images/ResidentEvil42.gif",
+            "../../../public/images/ResidentEvil43.gif",
+            "../../../public/images/ResidentEvil44.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/gTMwx9-rKe8"
     );
@@ -537,11 +547,12 @@ async function main() {
             "Official", ""
         ],
     /*images*/[
-            "../../../public/images/Uncharted4.gif",
-            "../../../public/images/Uncharted4.gif",
-            "../../../public/images/Uncharted4.gif",
-            "../../../public/images/Uncharted4.gif",
-            "../../../public/images/Uncharted4.gif"
+            "../../../public/images/Uncharted 4.gif",
+            "../../../public/images/Uncharted 45.gif",
+            "../../../public/images/Uncharted 41.gif",
+            "../../../public/images/Uncharted 42.gif",
+            "../../../public/images/Uncharted 43.gif",
+            "../../../public/images/Uncharted 44.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/hh5HV4iic1Y"
     );
@@ -586,10 +597,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/DirtRally.gif",
-            "../../../public/images/DirtRally.gif",
-            "../../../public/images/DirtRally.gif",
-            "../../../public/images/DirtRally.gif",
-            "../../../public/images/DirtRally.gif"
+            "../../../public/images/DirtRally5.gif",
+            "../../../public/images/DirtRally1.gif",
+            "../../../public/images/DirtRally2.gif",
+            "../../../public/images/DirtRally3.gif",
+            "../../../public/images/DirtRally4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/RQ7JvIncd4Y"
     );
@@ -631,10 +643,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/ForzaHorizon5.gif",
-            "../../../public/images/ForzaHorizon5.gif",
-            "../../../public/images/ForzaHorizon5.gif",
-            "../../../public/images/ForzaHorizon5.gif",
-            "../../../public/images/ForzaHorizon5.gif"
+            "../../../public/images/ForzaHorizon55.gif",
+            "../../../public/images/ForzaHorizon51.gif",
+            "../../../public/images/ForzaHorizon52.gif",
+            "../../../public/images/ForzaHorizon53.gif",
+            "../../../public/images/ForzaHorizon54.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/U3mEOHvSUyw"
     );
@@ -679,10 +692,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/NFS.gif",
-            "../../../public/images/NFS.gif",
-            "../../../public/images/NFS.gif",
-            "../../../public/images/NFS.gif",
-            "../../../public/images/NFS.gif"
+            "../../../public/images/NFS5.gif",
+            "../../../public/images/NFS1.gif",
+            "../../../public/images/NFS2.gif",
+            "../../../public/images/NFS3.gif",
+            "../../../public/images/NFS4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/D6ouHWP0KrY"
     );
@@ -724,10 +738,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/ProjectCARS2.gif",
-            "../../../public/images/ProjectCARS2.gif",
-            "../../../public/images/ProjectCARS2.gif",
-            "../../../public/images/ProjectCARS2.gif",
-            "../../../public/images/ProjectCARS2.gif"
+            "../../../public/images/ProjectCARS25.gif",
+            "../../../public/images/ProjectCARS21.gif",
+            "../../../public/images/ProjectCARS22.gif",
+            "../../../public/images/ProjectCARS23.gif",
+            "../../../public/images/ProjectCARS24.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/nsaiLLhN5VQ"
     );
@@ -771,10 +786,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/F12020.gif",
-            "../../../public/images/F12020.gif",
-            "../../../public/images/F12020.gif",
-            "../../../public/images/F12020.gif",
-            "../../../public/images/F12020.gif",
+            "../../../public/images/F120205.gif",
+            "../../../public/images/F120201.gif",
+            "../../../public/images/F120202.gif",
+            "../../../public/images/F120203.gif",
+            "../../../public/images/F120204.gif",
         ],
     /*youtube link*/ "https://www.youtube.com/embed/wF0vF1uXXYU"
     );
@@ -813,10 +829,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Forza.gif",
-            "../../../public/images/Forza.gif",
-            "../../../public/images/Forza.gif",
-            "../../../public/images/Forza.gif",
-            "../../../public/images/Forza.gif"
+            "../../../public/images/Forza5.gif",
+            "../../../public/images/Forza1.gif",
+            "../../../public/images/Forza2.gif",
+            "../../../public/images/Forza3.gif",
+            "../../../public/images/Forza4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/hIqAmS0C3P0"
     );
@@ -861,10 +878,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Mario_Tennis.gif",
-            "../../../public/images/Mario_Tennis.gif",
-            "../../../public/images/Mario_Tennis.gif",
-            "../../../public/images/Mario_Tennis.gif",
-            "../../../public/images/Mario_Tennis.gif"
+            "../../../public/images/Mario_Tennis5.gif",
+            "../../../public/images/Mario_Tennis1.gif",
+            "../../../public/images/Mario_Tennis2.gif",
+            "../../../public/images/Mario_Tennis3.gif",
+            "../../../public/images/Mario_Tennis4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/jxrHwK-e1vk");
     datas = await Sports.getAllSportss();
@@ -897,10 +915,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Fifa_10.gif",
-            "../../../public/images/Fifa_10.gif",
-            "../../../public/images/Fifa_10.gif",
-            "../../../public/images/Fifa_10.gif",
-            "../../../public/images/Fifa_10.gif"
+            "../../../public/images/Fifa_105.gif",
+            "../../../public/images/Fifa_101.gif",
+            "../../../public/images/Fifa_102.gif",
+            "../../../public/images/Fifa_103.gif",
+            "../../../public/images/Fifa_104.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/xkNggYc7WfQ");
     datas = await Sports.getAllSportss();
@@ -925,10 +944,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/wii.gif",
-            "../../../public/images/wii.gif",
-            "../../../public/images/wii.gif",
-            "../../../public/images/wii.gif",
-            "../../../public/images/wii.gif"
+            "../../../public/images/wii5.gif",
+            "../../../public/images/wii1.gif",
+            "../../../public/images/wii2.gif",
+            "../../../public/images/wii3.gif",
+            "../../../public/images/wii4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/tftWbfIFePc");
     datas = await Sports.getAllSportss();
@@ -972,10 +992,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/nfl.gif",
-            "../../../public/images/nfl.gif",
-            "../../../public/images/nfl.gif",
-            "../../../public/images/nfl.gif",
-            "../../../public/images/nfl.gif"
+            "../../../public/images/nfl5.gif",
+            "../../../public/images/nfl1.gif",
+            "../../../public/images/nfl2.gif",
+            "../../../public/images/nfl3.gif",
+            "../../../public/images/nfl4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/ObkFpWj__KM");
     datas = await Sports.getAllSportss();
@@ -1015,10 +1036,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Nintendo.gif",
-            "../../../public/images/Nintendo.gif",
-            "../../../public/images/Nintendo.gif",
-            "../../../public/images/Nintendo.gif",
-            "../../../public/images/Nintendo.gif"
+            "../../../public/images/Nintendo5.gif",
+            "../../../public/images/Nintendo1.gif",
+            "../../../public/images/Nintendo2.gif",
+            "../../../public/images/Nintendo3.gif",
+            "../../../public/images/Nintendo4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/tiwjvBSS_Wk");
     datas = await Sports.getAllSportss();
@@ -1059,10 +1081,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/Mario_golf.gif",
-            "../../../public/images/Mario_golf.gif",
-            "../../../public/images/Mario_golf.gif",
-            "../../../public/images/Mario_golf.gif",
-            "../../../public/images/Mario_golf.gif"
+            "../../../public/images/Mario_golf5.gif",
+            "../../../public/images/Mario_golf1.gif",
+            "../../../public/images/Mario_golf2.gif",
+            "../../../public/images/Mario_golf3.gif",
+            "../../../public/images/Mario_golf4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/5R-EuaUbPvc");
     datas = await Sports.getAllSportss();
@@ -1102,10 +1125,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/offworld.gif",
-            "../../../public/images/offworld.gif",
-            "../../../public/images/offworld.gif",
-            "../../../public/images/offworld.gif",
-            "../../../public/images/offworld.gif"
+            "../../../public/images/offworld5.gif",
+            "../../../public/images/offworld1.gif",
+            "../../../public/images/offworld2.gif",
+            "../../../public/images/offworld3.gif",
+            "../../../public/images/offworld4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/wOjeepczC6g");
     datas = await Strategy.getAllStrategys();
@@ -1159,10 +1183,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/crusader.gif",
-            "../../../public/images/crusader.gif",
-            "../../../public/images/crusader.gif",
-            "../../../public/images/crusader.gif",
-            "../../../public/images/crusader.gif"
+            "../../../public/images/crusader5.gif",
+            "../../../public/images/crusader1.gif",
+            "../../../public/images/crusader2.gif",
+            "../../../public/images/crusader3.gif",
+            "../../../public/images/crusader4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/xjn66Cl3pMA");
     datas = await Strategy.getAllStrategys();
@@ -1211,10 +1236,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/supremacy.gif",
-            "../../../public/images/supremacy.gif",
-            "../../../public/images/supremacy.gif",
-            "../../../public/images/supremacy.gif",
-            "../../../public/images/supremacy.gif"
+            "../../../public/images/supremacy5.gif",
+            "../../../public/images/supremacy1.gif",
+            "../../../public/images/supremacy2.gif",
+            "../../../public/images/supremacy3.gif",
+            "../../../public/images/supremacy4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/o1u5Rxl02Ok");
     datas = await Strategy.getAllStrategys();
@@ -1261,10 +1287,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/xcom2.gif",
-            "../../../public/images/xcom2.gif",
-            "../../../public/images/xcom2.gif",
-            "../../../public/images/xcom2.gif",
-            "../../../public/images/xcom2.gif"
+            "../../../public/images/xcom25.gif",
+            "../../../public/images/xcom21.gif",
+            "../../../public/images/xcom22.gif",
+            "../../../public/images/xcom23.gif",
+            "../../../public/images/xcom24.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/n3bENBYSucQ");
     datas = await Strategy.getAllStrategys();
@@ -1309,10 +1336,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/homeworld.gif",
-            "../../../public/images/homeworld.gif",
-            "../../../public/images/homeworld.gif",
-            "../../../public/images/homeworld.gif",
-            "../../../public/images/homeworld.gif"
+            "../../../public/images/homeworld5.gif",
+            "../../../public/images/homeworld1.gif",
+            "../../../public/images/homeworld2.gif",
+            "../../../public/images/homeworld3.gif",
+            "../../../public/images/homeworld4.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/QZNc6Cr5O-E");
     datas = await Strategy.getAllStrategys();
@@ -1361,10 +1389,11 @@ async function main() {
         ],
     /*images*/[
             "../../../public/images/civilization6.gif",
-            "../../../public/images/civilization6.gif",
-            "../../../public/images/civilization6.gif",
-            "../../../public/images/civilization6.gif",
-            "../../../public/images/civilization6.gif"
+            "../../../public/images/civilization65.gif",
+            "../../../public/images/civilization61.gif",
+            "../../../public/images/civilization62.gif",
+            "../../../public/images/civilization63.gif",
+            "../../../public/images/civilization64.gif"
         ],
     /*youtube link*/ "https://www.youtube.com/embed/5KdE0p2joJw"
     );
