@@ -8,7 +8,7 @@ const { response } = require('express');
 
 async function getAllStrategys(search) {
     const strategyCollection = await strategyGame();
-    const allStrategy = await strategyCollection.find({}).toArray();
+    let allStrategy = await strategyCollection.find({}).toArray();
     for (let x of allStrategy) {
         x._id = x._id.toString();
         if (x.images.length < 1) {

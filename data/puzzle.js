@@ -21,12 +21,18 @@ async function getAllPuzzles(search) {
 
     }
 
-    if (search != undefined && search != "") {
-        allPuzzle = allPuzzle.filter(function (item) {
+    let allPuzzleList;
+    if (search != undefined) {
+        allPuzzleList = allPuzzle.filter(function (item) {
             return item.name.trim().includes(search.trim());
         });
     }
-    return allPuzzle;
+
+    if(!allPuzzleList){
+        return allPuzzle;
+    }else{
+        return allPuzzleList;
+    }
 }
 
 async function getPuzzleById(puzzleId) {

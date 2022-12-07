@@ -9,7 +9,30 @@ const reviewData = data.reviews;
 const validation = require('../data/validation');
 
 router.get('/', async (req, res) => {
-    const search = xss(req.body.search.trim())
+    const search = ""
+    const action = await actionData.getAllActions(search);
+    action.forEach(async (action) => {
+        action.showRating = action.rating > 0 ? true : false;
+        action.ratingclass = action.rating >= 3.5 ? "success" : action.rating > 2 ? "warning" : "danger";
+        action.showEdit = req.session.user ? action.addedBy == req.session.user._id ? true : false : false
+    });
+
+    return res.render('templates/action/action', {
+        authenticated: req.session.user ? true : false,
+        user: req.session.user,
+        title: 'Action',
+        action: action
+    });
+
+});
+
+router.post('/', async (req, res) => {
+    let search =""
+    if (req.body.search != undefined) {
+        console.log(req.body.search)
+        search = xss(req.body.search.trim());
+    }
+    console.log(search)
     const action = await actionData.getAllActions(search);
     action.forEach(async (action) => {
         action.showRating = action.rating > 0 ? true : false;

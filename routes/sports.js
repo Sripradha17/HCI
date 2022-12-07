@@ -26,6 +26,29 @@ router.get('/', async (req, res) => {
 
 });
 
+router.post('/', async (req, res) => {
+    let search =""
+    if (req.body.search != undefined) {
+        console.log(req.body.search)
+        search = xss(req.body.search.trim());
+    }
+    console.log(search)
+    const sports = await sportsData.getAllSportss(search);
+    sports.forEach(async (sports) => {
+        sports.showRating = sports.rating > 0 ? true : false;
+        sports.ratingclass = sports.rating >= 3.5 ? "success" : sports.rating > 2 ? "warning" : "danger";
+        sports.showEdit = req.session.user ? sports.addedBy == req.session.user._id ? true : false : false
+    });
+
+    return res.render('templates/sports/sports', {
+        authenticated: req.session.user ? true : false,
+        user: req.session.user,
+        title: 'Sports',
+        sports: sports
+    });
+
+});
+
 router.get('/:id', async (req, res) => {
     let id = xss(req.params.id.trim());
     if (id === '') {

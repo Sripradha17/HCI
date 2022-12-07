@@ -26,6 +26,29 @@ router.get('/', async (req, res) => {
 
 });
 
+router.post('/', async (req, res) => {
+    let search =""
+    if (req.body.search != undefined) {
+        console.log(req.body.search)
+        search = xss(req.body.search.trim());
+    }
+    console.log(search)
+    const racing = await racingData.getAllRacings(search);
+    racing.forEach(async (racing) => {
+        racing.showRating = racing.rating > 0 ? true : false;
+        racing.ratingclass = racing.rating >= 3.5 ? "success" : racing.rating > 2 ? "warning" : "danger";
+        racing.showEdit = req.session.user ? racing.addedBy == req.session.user._id ? true : false : false
+    });
+
+    return res.render('templates/racing/racing', {
+        authenticated: req.session.user ? true : false,
+        user: req.session.user,
+        title: 'Racing',
+        racing: racing
+    });
+
+});
+
 router.get('/:id', async (req, res) => {
     let id = xss(req.params.id.trim());
     if (id === '') {

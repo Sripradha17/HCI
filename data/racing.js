@@ -8,7 +8,7 @@ const { response } = require('express');
 
 async function getAllRacings(search) {
     const racingCollection = await racingGame();
-    const allRacing = await racingCollection.find({}).toArray();
+    let allRacing = await racingCollection.find({}).toArray();
     for (let x of allRacing) {
         x._id = x._id.toString();
         if (x.images.length < 1) {
