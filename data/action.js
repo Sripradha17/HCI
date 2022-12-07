@@ -9,7 +9,7 @@ const { action } = require('../config/mongoCollections');
 
 async function getAllActions(search) {
     const actionCollection = await actionGame();
-    let allAction = await actionCollection.find({}).toArray();
+    var allAction = await actionCollection.find({}).toArray();
     for (let x of allAction) {
         x._id = x._id.toString();
         if (x.images.length < 1) {
@@ -22,9 +22,9 @@ async function getAllActions(search) {
         x.partAbout = x.about.substr(0, 60)
     }
 
-    if (search != undefined && search != "") {
+    if (search != undefined) {
         allAction = allAction.filter(function (item) {
-            return item.name.trim().includes(search.trim());
+            return (item.name.trim()).toLowerCase().includes(search.trim().toLowerCase());
         });
     }
 

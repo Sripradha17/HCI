@@ -9,7 +9,7 @@ const reviewData = data.reviews;
 const validation = require('../data/validation');
 
 router.get('/', async (req, res) => {
-    const search = xss(req.body.search.trim())
+    const search = ""
     const racing = await racingData.getAllRacings(search);
     racing.forEach(async (racing) => {
         racing.showRating = racing.rating > 0 ? true : false;

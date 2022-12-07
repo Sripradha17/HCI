@@ -1161,3 +1161,19 @@ h4 {
 li a{
     color: white;
 }
+
+.form-inline{
+    padding: 15px;
+    text-align: center;
+    display: block;
+}
+
+.form-inline button{
+    background-color: transparent;
+    box-shadow: 7px 7px grey;
+}
+
+.form-control{
+    box-shadow: 7px 7px grey;
+    border: #000;
+}

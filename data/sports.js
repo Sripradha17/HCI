@@ -8,7 +8,7 @@ const { response } = require('express');
 
 async function getAllSportss(search) {
     const sportsCollection = await sportsGame();
-    let allSports = await sportsCollection.find({}).toArray();
+    var allSports = await sportsCollection.find({}).toArray();
     for (let x of allSports) {
         x._id = x._id.toString();
         if (x.images.length < 1) {
@@ -21,9 +21,9 @@ async function getAllSportss(search) {
 
     }
     
-    if (search != undefined && search != "") {
+    if (search != undefined) {
         allSports = allSports.filter(function (item) {
-            return item.name.trim().includes(search.trim());
+            return (item.name.trim()).toLowerCase().includes(search.trim().toLowerCase());
         });
     }
     return allSports;
@@ -32,7 +32,7 @@ async function getAllSportss(search) {
 async function getSportsById(sportsId) {
 
     const sportsCollection = await sportsGame();
-    let sportsOne = await sportsCollection.findOne({ _id: ObjectId(sportsId.trim()) });
+    var sportsOne = await sportsCollection.findOne({ _id: ObjectId(sportsId.trim()) });
     if (sportsOne === null) {
         throw "No sports game with Id found"
     }

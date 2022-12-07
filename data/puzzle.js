@@ -8,7 +8,7 @@ const { response } = require('express');
 
 async function getAllPuzzles(search) {
     const puzzleCollection = await puzzleGame();
-    const allPuzzle = await puzzleCollection.find({}).toArray();
+    var allPuzzle = await puzzleCollection.find({}).toArray();
     for (let x of allPuzzle) {
         x._id = x._id.toString();
         if (x.images.length < 1) {
@@ -21,18 +21,12 @@ async function getAllPuzzles(search) {
 
     }
 
-    let allPuzzleList;
     if (search != undefined) {
-        allPuzzleList = allPuzzle.filter(function (item) {
-            return item.name.trim().includes(search.trim());
+        allPuzzle = allPuzzle.filter(function (item) {
+            return (item.name.trim()).toLowerCase().includes(search.trim().toLowerCase());
         });
     }
-
-    if(!allPuzzleList){
-        return allPuzzle;
-    }else{
-        return allPuzzleList;
-    }
+    return allPuzzle;
 }
 
 async function getPuzzleById(puzzleId) {

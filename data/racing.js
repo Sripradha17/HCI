@@ -8,7 +8,7 @@ const { response } = require('express');
 
 async function getAllRacings(search) {
     const racingCollection = await racingGame();
-    let allRacing = await racingCollection.find({}).toArray();
+    var allRacing = await racingCollection.find({}).toArray();
     for (let x of allRacing) {
         x._id = x._id.toString();
         if (x.images.length < 1) {
@@ -18,16 +18,15 @@ async function getAllRacings(search) {
             x.image = x.images[0];
         }
 
-        x.partAbout = x.about.substr(0,60)
+        x.partAbout = x.about.substr(0, 60)
 
     }
 
-    if (search != undefined && search != "") {
+    if (search != undefined) {
         allRacing = allRacing.filter(function (item) {
-            return item.name.trim().includes(search.trim());
+            return (item.name.trim()).toLowerCase().includes(search.trim().toLowerCase());
         });
     }
-
     return allRacing;
 }
 
@@ -52,11 +51,11 @@ async function getRacingById(racingId) {
     for (let j = 0; j < 5; j++) {
         if (racingOne.cheatCodes[j]) {
             racingOne.cheatCodesSet.push(racingOne.cheatCodes[j])
-        }else{
+        } else {
             break;
         }
     }
-    
+
     racingOne.urlNameOne = racingOne.url[0];
     racingOne.urlOne = racingOne.url[1]
     racingOne.urlNameTwo = racingOne.url[2];
