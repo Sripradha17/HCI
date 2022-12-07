@@ -6,7 +6,7 @@ const saltRounds = 16;
 let { ObjectId } = require('mongodb');
 const { response } = require('express');
 
-async function getAllSportss() {
+async function getAllSportss(search) {
     const sportsCollection = await sportsGame();
     const allSports = await sportsCollection.find({}).toArray();
     for (let x of allSports) {
@@ -20,7 +20,12 @@ async function getAllSportss() {
         x.partAbout = x.about.substr(0,60)
 
     }
-
+    
+    if (search != undefined && search != "") {
+        allSports = allSports.filter(function (item) {
+            return item.name.trim().includes(search.trim());
+        });
+    }
     return allSports;
 }
 
@@ -35,11 +40,10 @@ async function getSportsById(sportsId) {
         sportsOne.image = "no-sports-image.png";
     }
     else {
-        sportsOne.imageOne = sportsOne.images[0];
-        sportsOne.imageTwo = sportsOne.images[1];
-        sportsOne.imageThree = sportsOne.images[2];
-        sportsOne.imageFour = sportsOne.images[3];
-        sportsOne.imageFive = sportsOne.images[4];
+        sportsOne.imageOne = sportsOne.images[1];
+        sportsOne.imageTwo = sportsOne.images[2];
+        sportsOne.imageThree = sportsOne.images[3];
+        sportsOne.imageFour = sportsOne.images[4];
     }
 
     sportsOne.cheatCodesSet = []

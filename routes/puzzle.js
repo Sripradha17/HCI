@@ -9,7 +9,12 @@ const reviewData = data.reviews;
 const validation = require('../data/validation');
 
 router.get('/', async (req, res) => {
-    const puzzle = await puzzleData.getAllPuzzles();
+    let search =""
+    if (req.body.search != undefined) {
+        console.log(req.body.search)
+        search = xss(req.body.search.trim());
+    }
+    const puzzle = await puzzleData.getAllPuzzles(search);
     puzzle.forEach(async (puzzle) => {
         puzzle.showRating = puzzle.rating > 0 ? true : false;
         puzzle.ratingclass = puzzle.rating >= 3.5 ? "success" : puzzle.rating > 2 ? "warning" : "danger";

@@ -5,8 +5,10 @@
 
     <!--Controls-->
     <div class="controls-top">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="left-nav">&#x3c;</i></a>
-      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="right-nav">&#x3e;</i></a>
+      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
+          class="left-nav">&#x3c;</i></a>
+      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+          class="right-nav">&#x3e;</i></a>
     </div>
     <!--/.Controls-->
 
@@ -18,34 +20,67 @@
 
         <div class="col-md-4" style="float:left">
           <div class="card mb-2">
+            {{#if user}}
             <a href="/puzzle">
               <div class="card-body">
                 <h1 class="card-title">Puzzle</h1>
-                <img class="card-img-top" src="../../../public/images/puzzle.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../../public/images/puzzle.jpg"
+                  alt="Card image cap">
               </div>
             </a>
+            {{else}}
+            <a href="/login">
+              <div class="card-body">
+                <h1 class="card-title">Puzzle</h1>
+                <img class="card-img-top" src="../../../public/images/puzzle.jpg"
+                  alt="Card image cap">
+              </div>
+            </a>
+            {{/if}}
           </div>
         </div>
 
         <div class="col-md-4" style="float:left">
           <div class="card mb-2">
+            {{#if user}}
             <a href="/racing">
               <div class="card-body">
                 <h1 class="card-title">Racing</h1>
-                <img class="card-img-top" src="../../../public/images/racing.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../../public/images/racing.jpg"
+                  alt="Card image cap">
               </div>
             </a>
+            {{else}}
+            <a href="/login">
+              <div class="card-body">
+                <h1 class="card-title">Racing</h1>
+                <img class="card-img-top" src="../../../public/images/racing.jpg"
+                  alt="Card image cap">
+              </div>
+            </a>
+            {{/if}}
           </div>
         </div>
 
         <div class="col-md-4" style="float:left">
           <div class="card mb-2">
+            {{#if user}}
             <a href="/sports">
               <div class="card-body">
                 <h1 class="card-title">Sports</h1>
-                <img class="card-img-top" src="../../../public/images/sports.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../../public/images/sports.jpg"
+                  alt="Card image cap">
               </div>
             </a>
+            {{else}}
+            <a href="/sports">
+              <div class="card-body">
+                <h1 class="card-title">Sports</h1>
+                <img class="card-img-top" src="../../../public/images/sports.jpg"
+                  alt="Card image cap">
+              </div>
+            </a>
+            {{/if}}
           </div>
         </div>
 
@@ -59,23 +94,45 @@
 
         <div class="col-md-4" style="float:left">
           <div class="card mb-2">
+            {{#if user}}
             <a href="/strategy">
               <div class="card-body">
                 <h1 class="card-title">Strategy</h1>
-                <img class="card-img-top" src="../../../public/images/strategy.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../../public/images/strategy.jpg"
+                  alt="Card image cap">
               </div>
             </a>
+            {{else}}
+            <a href="/strategy">
+              <div class="card-body">
+                <h1 class="card-title">Strategy</h1>
+                <img class="card-img-top" src="../../../public/images/strategy.jpg"
+                  alt="Card image cap">
+              </div>
+            </a>
+            {{/if}}
           </div>
         </div>
 
         <div class="col-md-4" style="float:left">
           <div class="card mb-2">
+            {{#if user}}
             <a href="/action">
               <div class="card-body">
                 <h1 class="card-title">Action</h1>
-                <img class="card-img-top" src="../../../public/images/action.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../../public/images/action.jpg"
+                  alt="Card image cap">
               </div>
             </a>
+            {{else}}
+            <a href="/action">
+              <div class="card-body">
+                <h1 class="card-title">Action</h1>
+                <img class="card-img-top" src="../../../public/images/action.jpg"
+                  alt="Card image cap">
+              </div>
+            </a>
+            {{/if}}
           </div>
         </div>
       </div>
@@ -100,7 +157,7 @@
       which allows the gamers to learn and review games. It helps the gamers with
       instructions to play the game and get sneak peek into some cheat codes. It also
       provides the users with game suggestions and provides categories of different
-      age groups. 
+      age groups.
       <b><i><u>“Game Over”</u></i></b> provides the gamers with the links to
       download/buy the games.
       The project <b><i><u>“Game Over”</u></i></b> is an application

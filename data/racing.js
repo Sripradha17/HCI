@@ -6,7 +6,7 @@ const saltRounds = 16;
 let { ObjectId } = require('mongodb');
 const { response } = require('express');
 
-async function getAllRacings() {
+async function getAllRacings(search) {
     const racingCollection = await racingGame();
     const allRacing = await racingCollection.find({}).toArray();
     for (let x of allRacing) {
@@ -20,6 +20,12 @@ async function getAllRacings() {
 
         x.partAbout = x.about.substr(0,60)
 
+    }
+
+    if (search != undefined && search != "") {
+        allRacing = allRacing.filter(function (item) {
+            return item.name.trim().includes(search.trim());
+        });
     }
 
     return allRacing;
@@ -36,11 +42,10 @@ async function getRacingById(racingId) {
         racingOne.image = "no-racing-image.png";
     }
     else {
-        racingOne.imageOne = racingOne.images[0];
-        racingOne.imageTwo = racingOne.images[1];
-        racingOne.imageThree = racingOne.images[2];
-        racingOne.imageFour = racingOne.images[3];
-        racingOne.imageFive = racingOne.images[4];
+        racingOne.imageOne = racingOne.images[1];
+        racingOne.imageTwo = racingOne.images[2];
+        racingOne.imageThree = racingOne.images[3];
+        racingOne.imageFour = racingOne.images[4];
     }
 
     racingOne.cheatCodesSet = []

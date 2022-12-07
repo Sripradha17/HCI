@@ -15,11 +15,12 @@ const { parse } = require('handlebars');
 
 
 router.get('/', async (req, res) => {
-    let puzzle = await puzzleData.getAllPuzzles();
-    let action = await actionData.getAllActions();
-    let racing = await racingData.getAllRacings();
-    let sports = await sportsData.getAllSportss();
-    let strategy = await strategyData.getAllStrategys();
+    let search=""
+    let puzzle = await puzzleData.getAllPuzzles(search);
+    let action = await actionData.getAllActions(search);
+    let racing = await racingData.getAllRacings(search);
+    let sports = await sportsData.getAllSportss(search);
+    let strategy = await strategyData.getAllStrategys(search);
 
     res.render('templates/users/index',
         {

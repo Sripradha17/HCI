@@ -9,7 +9,8 @@ const reviewData = data.reviews;
 const validation = require('../data/validation');
 
 router.get('/', async (req, res) => {
-    const action = await actionData.getAllActions();
+    const search = xss(req.body.search.trim())
+    const action = await actionData.getAllActions(search);
     action.forEach(async (action) => {
         action.showRating = action.rating > 0 ? true : false;
         action.ratingclass = action.rating >= 3.5 ? "success" : action.rating > 2 ? "warning" : "danger";

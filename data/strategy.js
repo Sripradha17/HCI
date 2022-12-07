@@ -6,7 +6,7 @@ const saltRounds = 16;
 let { ObjectId } = require('mongodb');
 const { response } = require('express');
 
-async function getAllStrategys() {
+async function getAllStrategys(search) {
     const strategyCollection = await strategyGame();
     const allStrategy = await strategyCollection.find({}).toArray();
     for (let x of allStrategy) {
@@ -21,6 +21,11 @@ async function getAllStrategys() {
 
     }
 
+    if (search != undefined && search != "") {
+        allStrategy = allStrategy.filter(function (item) {
+            return item.name.trim().includes(search.trim());
+        });
+    }
     return allStrategy;
 }
 
@@ -35,11 +40,10 @@ async function getStrategyById(strategyId) {
         strategyOne.image = "no-strategy-image.png";
     }
     else {
-        strategyOne.imageOne = strategyOne.images[0];
-        strategyOne.imageTwo = strategyOne.images[1];
-        strategyOne.imageThree = strategyOne.images[2];
-        strategyOne.imageFour = strategyOne.images[3];
-        strategyOne.imageFive = strategyOne.images[4];
+        strategyOne.imageOne = strategyOne.images[1];
+        strategyOne.imageTwo = strategyOne.images[2];
+        strategyOne.imageThree = strategyOne.images[3];
+        strategyOne.imageFour = strategyOne.images[4];
     }
 
     strategyOne.cheatCodesSet = []

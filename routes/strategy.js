@@ -9,7 +9,8 @@ const reviewData = data.reviews;
 const validation = require('../data/validation');
 
 router.get('/', async (req, res) => {
-    const strategy = await strategyData.getAllStrategys();
+    const search = xss(req.body.search.trim())
+    const strategy = await strategyData.getAllStrategys(search);
     strategy.forEach(async (strategy) => {
         strategy.showRating = strategy.rating > 0 ? true : false;
         strategy.ratingclass = strategy.rating >= 3.5 ? "success" : strategy.rating > 2 ? "warning" : "danger";

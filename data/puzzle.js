@@ -6,7 +6,7 @@ const saltRounds = 16;
 let { ObjectId } = require('mongodb');
 const { response } = require('express');
 
-async function getAllPuzzles() {
+async function getAllPuzzles(search) {
     const puzzleCollection = await puzzleGame();
     const allPuzzle = await puzzleCollection.find({}).toArray();
     for (let x of allPuzzle) {
@@ -21,6 +21,11 @@ async function getAllPuzzles() {
 
     }
 
+    if (search != undefined && search != "") {
+        allPuzzle = allPuzzle.filter(function (item) {
+            return item.name.trim().includes(search.trim());
+        });
+    }
     return allPuzzle;
 }
 

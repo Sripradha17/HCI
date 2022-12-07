@@ -9,7 +9,8 @@ const reviewData = data.reviews;
 const validation = require('../data/validation');
 
 router.get('/', async (req, res) => {
-    const sports = await sportsData.getAllSportss();
+    const search = xss(req.body.search.trim())
+    const sports = await sportsData.getAllSportss(search);
     sports.forEach(async (sports) => {
         sports.showRating = sports.rating > 0 ? true : false;
         sports.ratingclass = sports.rating >= 3.5 ? "success" : sports.rating > 2 ? "warning" : "danger";

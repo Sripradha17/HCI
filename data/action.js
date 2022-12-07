@@ -7,7 +7,7 @@ let { ObjectId } = require('mongodb');
 const { response } = require('express');
 const { action } = require('../config/mongoCollections');
 
-async function getAllActions() {
+async function getAllActions(search) {
     const actionCollection = await actionGame();
     const allAction = await actionCollection.find({}).toArray();
     for (let x of allAction) {
@@ -20,6 +20,12 @@ async function getAllActions() {
         }
 
         x.partAbout = x.about.substr(0, 60)
+    }
+
+    if (search != undefined && search != "") {
+        allAction = allAction.filter(function (item) {
+            return item.name.trim().includes(search.trim());
+        });
     }
 
     return allAction;
