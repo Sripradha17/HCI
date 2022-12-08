@@ -547,12 +547,12 @@ async function main() {
             "Official", ""
         ],
     /*images*/[
-            "../../../public/images/Uncharted 4.gif",
-            "../../../public/images/Uncharted 45.gif",
-            "../../../public/images/Uncharted 41.gif",
-            "../../../public/images/Uncharted 42.gif",
-            "../../../public/images/Uncharted 43.gif",
-            "../../../public/images/Uncharted 44.gif"
+            "../../../public/images/Uncharted4.gif",
+            "../../../public/images/Uncharted45.gif",
+            "../../../public/images/Uncharted41.gif",
+            "../../../public/images/Uncharted42.gif",
+            "../../../public/images/Uncharted43.gif",
+            "../../../public/images/Uncharted44.gif"
         ],
     /*youtube link*/"https://www.youtube.com/embed/hh5HV4iic1Y"
     );
