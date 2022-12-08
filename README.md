@@ -1,3 +1,7 @@
+## application or software requirement
+node.js
+visual studio code
+mondo db compass
 
 ## How to Setup
 
